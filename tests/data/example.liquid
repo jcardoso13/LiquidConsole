@@ -1,5 +1,6 @@
 {%- if content.a or content.b -%}
 {
-    "HELLO":"WORLD2"
+    "HELLO":"WORLD2",
+    "TEST":{{ content | json }}
 }
 {%- endif -%}

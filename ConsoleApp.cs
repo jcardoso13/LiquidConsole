@@ -27,10 +27,10 @@ string inputJSON = File.ReadAllText(args[0]);
 microsoftLogger.LogInformation("Liquid File is " + args[1]);
 string liquid = File.ReadAllText(args[1]);
 microsoftLogger.LogInformation("Output File is " + args[2]);
-CloudLiquidRuntime.log = microsoftLogger;
+AzureCloudLiquid.log = microsoftLogger;
 var contentReader = ContentFactory.GetContentReader("application/json");
 Hash parsedJSON = contentReader.ParseString(inputJSON);
-var output = CloudLiquidRuntime.Run(parsedJSON,liquid);
+var output = AzureCloudLiquid.Run(parsedJSON,liquid);
 microsoftLogger.LogInformation(output);
 File.WriteAllText(args[2], output);
 
