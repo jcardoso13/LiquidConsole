@@ -31,6 +31,20 @@ AzureCloudLiquid.log = microsoftLogger;
 var contentReader = ContentFactory.GetContentReader("application/json");
 Hash parsedJSON = contentReader.ParseString(inputJSON);
 var output = AzureCloudLiquid.Run(parsedJSON,liquid);
-microsoftLogger.LogInformation(output);
-File.WriteAllText(args[2], output);
+//microsoftLogger.LogInformation(output);
+var split= args[2].Split(".");
+string contenttype;
+microsoftLogger.LogInformation("Content Type is "+split[2]);
+switch(split[2])
+{
+    case "json": contenttype="application/json";
+    break;
+    case "xml": contenttype="application/xml";
+    break;
+    default: contenttype="text/plain";
+    break;
+}
+var writer = ContentFactory.GetContentWriter(contenttype);
+var content = writer.CreateResponse(output);
+File.WriteAllText(args[2], await content.ReadAsStringAsync());
 
