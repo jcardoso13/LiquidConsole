@@ -1,0 +1,16 @@
+{% capturejson work %}
+{
+    "inputs": {
+        "host": {
+            "workflow": {
+                "id": "REPLACE"
+            }
+        },
+        "body": {{content.inputs.body | json}},
+        "headers": {{content.inputs.headers | json}}
+    },
+    "runAfter": {{content.runAfter | json}},
+    "type": "Workflow"
+}
+{%endcapturejson %}
+{{work | json}}

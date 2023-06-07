@@ -1,0 +1,19 @@
+
+{% assign actions = content.definition.actions %}
+{% assign trigger = content.definition.triggers %}
+
+{%capturejson final %}
+{
+{%include_local "ActionIterator" content: content.definition.actions %}
+}
+{%endcapturejson %}
+{
+	"definition": {
+		"$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+		"actions": {{final | json }},
+		"contentVersion": "1.0.0.0",
+		"outputs": {},
+		"triggers": {{ trigger | json }}
+	},
+	"kind": "Stateful"
+}

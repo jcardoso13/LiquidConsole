@@ -3,6 +3,7 @@ using Microsoft.Extensions.Logging;
 using DotLiquid;
 using CloudLiquid;
 using TransformData.ContentFactory;
+using DotLiquid.FileSystems;
 
 var serilogLogger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -28,6 +29,8 @@ microsoftLogger.LogInformation("Liquid File is " + args[1]);
 string liquid = File.ReadAllText(args[1]);
 microsoftLogger.LogInformation("Output File is " + args[2]);
 AzureCloudLiquid.log = microsoftLogger;
+microsoftLogger.LogInformation(System.IO.Directory.GetCurrentDirectory()+"/liquid/");
+Template.FileSystem = new LocalFileSystem(System.IO.Directory.GetCurrentDirectory()+"/liquid/");
 var contentReader = ContentFactory.GetContentReader("application/json");
 Hash parsedJSON = contentReader.ParseString(inputJSON);
 var output = AzureCloudLiquid.Run(parsedJSON,liquid);
