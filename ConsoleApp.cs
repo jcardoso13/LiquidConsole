@@ -31,12 +31,23 @@ microsoftLogger.LogInformation("Output File is " + args[2]);
 AzureCloudLiquid.log = microsoftLogger;
 microsoftLogger.LogInformation(System.IO.Directory.GetCurrentDirectory()+"/liquid/");
 Template.FileSystem = new LocalFileSystem(System.IO.Directory.GetCurrentDirectory()+"/liquid/");
-var contentReader = ContentFactory.GetContentReader("application/json");
+string contenttype;
+microsoftLogger.LogInformation(args[0].Split(".")[2]);
+var split= args[0].Split(".");
+switch(split[2])
+{
+    case "json": contenttype="application/json";
+    break;
+    case "xml": contenttype="application/xml";
+    break;
+    default: contenttype="text/plain";
+    break;
+}
+var contentReader = ContentFactory.GetContentReader(contenttype);
 Hash parsedJSON = contentReader.ParseString(inputJSON);
 var output = AzureCloudLiquid.Run(parsedJSON,liquid);
 //microsoftLogger.LogInformation(output);
-var split= args[2].Split(".");
-string contenttype;
+split= args[2].Split(".");
 microsoftLogger.LogInformation("Content Type is "+split[2]);
 switch(split[2])
 {

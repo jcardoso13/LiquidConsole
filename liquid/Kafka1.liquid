@@ -1,0 +1,20 @@
+{%assign noti = content.Envelope.Body.Notification %}
+{% if noti.last.Key != null %}
+    {%assign filtered = content.Envelope.Body | remove_property: "Notification" %}
+    {%capturejson newnoti %}
+    {
+        {{filtered | json_cur_object }},
+        "Notification":[
+            {{content.Envelope.Body.Notification | json }}
+        ]
+    }
+    {%endcapturejson%}
+{%else%}
+{%capturejson newnoti %}
+{{content.Envelope.Body | json }}
+{%endcapturejson%}
+{%endif%}
+{
+    "query":"Select Id,Name,Owner.Name,CurrencyIsoCode,Account.S4SIfA__c,Account.S4SIdentification_Number__c,S4SEnd_Account__r.Name,S4SEnd_Account__r.S4SIfA__c, S4SPartner_Responsible__r.Name,PartnerAccount.S4SEmail__c from Opportunity where Id in ({%- for item in newnoti.Notification -%}'{{item.sObject.OpportunityId}}'{%-if forloop.last != true -%},{%-endif-%}{%-endfor-%})",
+    "input":{{newnoti | json}}
+}
