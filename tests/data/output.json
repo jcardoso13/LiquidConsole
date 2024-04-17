@@ -1,4 +1,1 @@
-{
-    "HELLO":"WORLD2",
-    "TEST":Hello World
-}
+{"HELLO":"WORLD2","TEST":{"a":true,"b":false}}
