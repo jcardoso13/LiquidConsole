@@ -1,1 +1,1 @@
-{"HELLO":"WORLD2","TEST":{"a":true,"b":false}}
+{"ExampleProperty":"HarcodedString","TestReason":" Simple JSON test for CloudLiquid","TestFilters":{"a":true,"b":false}}
