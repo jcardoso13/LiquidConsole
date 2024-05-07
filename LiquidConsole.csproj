@@ -15,5 +15,8 @@
     <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
     <!-- <ProjectReference Include = "../ContentFactory/ContentFactory.csproj" /> -->
 	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CloudLiquid\CloudLiquid.csproj" />
+  </ItemGroup>
 
 </Project>

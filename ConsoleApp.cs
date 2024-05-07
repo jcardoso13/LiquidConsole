@@ -48,7 +48,7 @@ var liquidInstance = new CloudLiquid.CloudLiquid(microsoftLogger);
 
 liquidInstance.InitializeTagsAndFilters();
 
-var output = liquidInstance.Run(parsedJSON,liquid);
+var result = liquidInstance.Run(parsedJSON,liquid);
 //microsoftLogger.LogInformation(output);
 split= args[2].Split(".");
 microsoftLogger.LogInformation("Content Type is "+split[1]);
@@ -62,6 +62,14 @@ switch(split[1])
     break;
 }
 var writer = ContentFactory.GetContentWriter(contenttype);
-var content = writer.CreateResponse(output);
-File.WriteAllText(args[2], await content.ReadAsStringAsync());
 
+if (result.Success)
+{
+    var content = writer.CreateResponse(result.Output);
+    File.WriteAllText(args[2], await content.ReadAsStringAsync());
+    microsoftLogger.LogInformation($"Data processed successfully. Output: {result.Output}");
+}
+else
+{
+    microsoftLogger.LogError($"Error while processing data.\nAction: {result.ErrorAction}\nMessage:{result.ErrorMessage}");
+}
