@@ -7,13 +7,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
   <ItemGroup>
-		<PackageReference Include="DotLiquid" Version="2.2.656"/>
-    <PackageReference Include="Serilog" Version="2.12.0"/>
-    <PackageReference Include="Serilog.Sinks.Console" Version="4.1.0"/>
-    <PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0"/>
+		<PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
+		<PackageReference Include="CloudLiquid.ContentFactory" Version="1.0.4" />
+		<PackageReference Include="DotLiquid" Version="2.2.692" />
+    <PackageReference Include="Serilog" Version="3.1.1" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
     <!-- <ProjectReference Include = "../ContentFactory/ContentFactory.csproj" /> -->
-    <PackageReference Include = "CloudLiquid" Version="1.0.3"/>
-    <PackageReference Include = "CloudLiquid.ContentFactory" Version="1.0.3"/>
 	</ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CloudLiquid\CloudLiquid.csproj" />
+  </ItemGroup>
 
 </Project>

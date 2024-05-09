@@ -1,9 +1,9 @@
-﻿using Serilog;
-using Microsoft.Extensions.Logging;
+﻿using CloudLiquid.ContentFactory;
+using CloudLiquid.Core;
 using DotLiquid;
-using CloudLiquid;
-using CloudLiquid.ContentFactory;
 using DotLiquid.FileSystems;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 var serilogLogger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -28,8 +28,7 @@ string inputJSON = File.ReadAllText(args[0]);
 microsoftLogger.LogInformation("Liquid File is " + args[1]);
 string liquid = File.ReadAllText(args[1]);
 microsoftLogger.LogInformation("Output File is " + args[2]);
-CloudLiquid.Liquid.log = microsoftLogger;
-microsoftLogger.LogInformation(System.IO.Directory.GetCurrentDirectory()+"/liquid/");
+//.LogInformation(System.IO.Directory.GetCurrentDirectory()+"/liquid/");
 Template.FileSystem = new LocalFileSystem(System.IO.Directory.GetCurrentDirectory()+"/liquid/");
 string contenttype;
 microsoftLogger.LogInformation(args[0].Split(".")[2]);
@@ -45,11 +44,16 @@ switch(split[2])
 }
 var contentReader = ContentFactory.GetContentReader(contenttype);
 Hash parsedJSON = contentReader.ParseString(inputJSON);
-var output = CloudLiquid.Liquid.Run(parsedJSON,liquid);
+
+var liquidInstance = new LiquidProcessor(microsoftLogger, null);
+
+liquidInstance.InitializeTagsAndFilters();
+
+var result = liquidInstance.Run(parsedJSON,liquid);
 //microsoftLogger.LogInformation(output);
 split= args[2].Split(".");
-microsoftLogger.LogInformation("Content Type is "+split[2]);
-switch(split[2])
+microsoftLogger.LogInformation("Content Type is "+split[1]);
+switch(split[1])
 {
     case "json": contenttype="application/json";
     break;
@@ -59,6 +63,14 @@ switch(split[2])
     break;
 }
 var writer = ContentFactory.GetContentWriter(contenttype);
-var content = writer.CreateResponse(output);
-File.WriteAllText(args[2], await content.ReadAsStringAsync());
 
+if (result.Success)
+{
+    var content = writer.CreateResponse(result.Output);
+    File.WriteAllText(args[2], await content.ReadAsStringAsync());
+    microsoftLogger.LogInformation($"Data processed successfully. Output: {result.Output}");
+}
+else
+{
+    microsoftLogger.LogError($"Error while processing data.\nAction: {result.ErrorAction}\nMessage:{result.ErrorMessage}");
+}
