@@ -1,4 +1,5 @@
 ﻿using CloudLiquid.ContentFactory;
+using CloudLiquid.Core;
 using DotLiquid;
 using DotLiquid.FileSystems;
 using Microsoft.Extensions.Logging;
@@ -44,7 +45,7 @@ switch(split[2])
 var contentReader = ContentFactory.GetContentReader(contenttype);
 Hash parsedJSON = contentReader.ParseString(inputJSON);
 
-var liquidInstance = new CloudLiquid.CloudLiquid(microsoftLogger);
+var liquidInstance = new LiquidProcessor(microsoftLogger, null);
 
 liquidInstance.InitializeTagsAndFilters();
 
