@@ -5,3 +5,5 @@ bin/
 tests/ignore
 .mono
 /.vs
+tests/data/output.json
+tests/data/output.txt
