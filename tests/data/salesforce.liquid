@@ -130,7 +130,7 @@ So the Output goal is the following
                     {% capture_json line %}
                     {
                         "attributes" : {"type" : "QuoteLine"},
-                        {{ quoteline | json_cur_object }}
+                        {{ quoteline | json: "nobrackets" }}
                     }
                     {% endcapture_json %}
                     {% assign UpdateOpportunity = UpdateOpportunity | add_to_list: line %}
@@ -139,7 +139,7 @@ So the Output goal is the following
                 {% capture_json line %}
                 {
                     "attributes" : {"type" : "Quote"},
-                    {{ quo | json_cur_object }}
+                    {{ quo | json: "nobrackets" }}
                 }
                 {% endcapture_json %}
                 {% assign UpdateOpportunity = UpdateOpportunity | add_to_list: line %}
@@ -148,7 +148,7 @@ So the Output goal is the following
             {% capture_json line %}
             {
                     "attributes" : {"type" : "Opportunity"},
-                    {{ opp | json_cur_object }}
+                    {{ opp | json: "nobrackets" }}
             }
             {% endcapture_json %}
             {% assign UpdateOpportunity = UpdateOpportunity | add_to_list: line %}

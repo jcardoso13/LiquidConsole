@@ -8,12 +8,11 @@
   </PropertyGroup>
   <ItemGroup>
 		<PackageReference Include="Azure.Storage.Blobs" Version="12.19.1" />
-		<PackageReference Include="CloudLiquid.ContentFactory" Version="1.0.4" />
+		<!-- <PackageReference Include="CloudLiquid.ContentFactory" Version="1.0.4" /> -->
 		<PackageReference Include="DotLiquid" Version="2.2.692" />
     <PackageReference Include="Serilog" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.Console" Version="5.0.1" />
     <PackageReference Include="Serilog.Extensions.Logging" Version="8.0.0" />
-    <!-- <ProjectReference Include = "../ContentFactory/ContentFactory.csproj" /> -->
 	</ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CloudLiquid\CloudLiquid.csproj" />

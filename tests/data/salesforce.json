@@ -8,6 +8,7 @@
                 {
                     "Name":"TEST QUOTE",
                     "Description":"This is an example Quote",
+                    "Property1": null,
                     "QuoteLine":[
                         {
                             "Name": "TEST QUOTELINE",
