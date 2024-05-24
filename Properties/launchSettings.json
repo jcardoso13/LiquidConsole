@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "LiquidConsole": {
+      "commandName": "Project",
+      "commandLineArgs": " ..\\..\\..\\tests\\data\\CaptureJsonInput.json ..\\..\\..\\tests\\data\\CaptureJson.liquid output.json"
+    }
+  }
+}
