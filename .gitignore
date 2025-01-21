@@ -9,3 +9,5 @@ tests/ignore
 /.vs
 tests/data/output.json
 tests/data/output.txt
+tests/data/output.xml
+tests/data/output.csv

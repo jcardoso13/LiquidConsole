@@ -1,15 +1,2 @@
-{% capture_json test %}
-{
-"TEST_TAG":"HELLO_WORLD"
-}
-{% endcapture_json %}
-
-{%- if test.TEST_TAG == "HELLO_WORLD" %}
-{
-    "TEST":"SUCCESS"
-}
-{%else%}
-{
-    "TEST":"FAILURE"
-}
-{%- endif -%}
+{%- capture_json test -%}{"TEST_TAG":"HELLO_WORLD"}{%- endcapture_json -%}
+{%- if test.TEST_TAG == "HELLO_WORLD" -%}SUCCESS{%- else -%}FAILURE{%- endif -%}
