@@ -1,0 +1,29 @@
+name: Call Build and Run
+
+on:
+  workflow_dispatch:
+    inputs:
+      input-json:
+        description: 'Input JSON file'
+        required: true
+        type: string
+      liquid-string:
+        description: 'Liquid string'
+        required: true
+        type: string
+
+jobs:
+  call-build-and-run:
+      uses: ./.github/workflows/run.yml
+      with:
+        input-json: ${{ github.event.inputs.input-json }}
+        liquid-string: ${{ github.event.inputs.liquid-string }}  
+  upload-output:
+    needs: call-build-and-run
+    runs-on: ubuntu-latest
+    steps:
+    - name: Upload output.json as artifact
+      uses: actions/upload-artifact@v3
+      with:
+        name: output-json
+        path: ${{ needs.call-build-and-run.outputs.output-json }}

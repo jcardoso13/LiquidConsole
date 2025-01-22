@@ -1,0 +1,69 @@
+name: Build and Run
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      input-json:
+        description: 'Input JSON file'
+        required: true
+        type: string
+      liquid-string:
+        description: 'Liquid string'
+        required: true
+        type: string
+
+  workflow_call:
+    inputs:
+      input-json:
+        description: 'Input JSON file'
+        required: true
+        type: string
+      liquid-string:
+        description: 'Liquid string'
+        required: true
+        type: string
+    outputs:
+      output-json:
+        description: 'The output JSON file'
+        value: ${{ steps.upload-output.outputs.output-json }}
+
+jobs:
+  build-and-run:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '7.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore
+
+    - name: Build the project
+      run: dotnet build --configuration Release --no-restore
+
+    - name: Save input JSON to file
+      run: echo '${{ github.event.inputs.input-json }}' > input.json
+
+    - name: Save Liquid string to file
+      run: echo '${{ github.event.inputs.liquid-string }}' > example.liquid
+
+    - name: Run the project
+      run: dotnet run --no-build --project LiquidConsole.csproj input.json example.liquid output.json
+
+    - name: Upload output.json as artifact
+      id: upload-output
+      uses: actions/upload-artifact@v3
+      with:
+        name: output-json
+        path: output.json
