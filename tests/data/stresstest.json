@@ -1,0 +1,2022 @@
+{
+    "OpportunityRequest":[
+        {
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },
+        {
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        },{
+            "Name":"TEST",
+            "Description":"This is an example Opportunity",
+            "Owner":"João Cardoso",
+            "Quote":[
+                {
+                    "Name":"TEST QUOTE",
+                    "Description":"This is an example Quote",
+                    "Quantity": 2,
+                    "UnitPrice": 200,
+                    "TotalPrice": 400,
+                    "ProductCode": "XYZ789",
+                    "QuoteLine":[
+                        {
+                            "Name": "TEST QUOTELINE",
+                            "Description":"This is an example Quoteline",
+                            "Quantity": 1,
+                            "UnitPrice": 100,
+                            "TotalPrice": 100,
+                            "ProductCode": "ABC123"
+                        }
+                    ]
+                }
+            ],
+            "CustomField1": "Value1",
+            "CustomField2": "Value2",
+            "Contact": {
+                "FirstName": "John",
+                "LastName": "Doe",
+                "Email": "john.doe@example.com"
+            },
+            "User": {
+                "FirstName": "Jane",
+                "LastName": "Smith",
+                "Email": "jane.smith@example.com"
+            },
+            "Task": {
+                "Subject": "Follow-up",
+                "Description": "Follow up with the client",
+                "DueDate": "2022-01-01"
+            },
+            "Flags": ["High Priority", "Urgent"]
+        }
+    ]
+}

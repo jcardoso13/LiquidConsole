@@ -1,0 +1,65 @@
+{
+    "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "salesforceBaseUrl": {
+            "type": "string"
+        },
+        "salesforceUsername": {
+            "type": "string"
+        },
+        "salesforcePassword": {
+            "type": "string"
+        }
+    },
+    "triggers": {
+        "manual": {
+            "type": "Request",
+            "kind": "Http",
+            "inputs": {
+                "schema": {
+                    "properties": {}
+                }
+            }
+        }
+    },
+    "actions": {
+        "initialize_variable": {
+            "type": "InitializeVariable",
+            "inputs": {
+                "variables": [
+                    {
+                        "name": "salesforceBaseUrl",
+                        "type": "String",
+                        "value": "@{parameters('salesforceBaseUrl')}"
+                    },
+                    {
+                        "name": "salesforceUsername",
+                        "type": "String",
+                        "value": "@{parameters('salesforceUsername')}"
+                    },
+                    {
+                        "name": "salesforcePassword",
+                        "type": "String",
+                        "value": "@{parameters('salesforcePassword')}"
+                    }
+                ]
+            }
+        },
+        "http": {
+            "type": "Http",
+            "inputs": {
+                "method": "POST",
+                "uri": "@{variables('salesforceBaseUrl')}/api/endpoint",
+                "headers": {
+                    "Content-Type": "application/json"
+                },
+                "body": {
+                    "property1": "value1",
+                    "property2": "value2"
+                }
+            }
+        }
+    },
+    "outputs": {}
+}
