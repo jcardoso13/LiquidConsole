@@ -6,20 +6,23 @@ on:
 jobs:
   read-files:
     runs-on: ubuntu-latest
+    outputs:
+      input-json: ${{ steps.read_json.outputs.input-json }}
+      liquid-string: ${{ steps.read_liquid.outputs.liquid-string }}
     steps:
     - name: Read liquid file
       id: read_liquid
-      run: echo "liquid-string=$(cat liquid/salesforceCloudLiquid.liquid)" >> $GITHUB_ENV
+      run: echo "liquid-string=$(cat liquid/salesforceCloudLiquid.liquid)" >> $GITHUB_OUTPUT
     - name: Read JSON file
       id: read_json
-      run: echo "input-json=$(cat tests/data/salesforce.json)" >> $GITHUB_ENV
+      run: echo "input-json=$(cat tests/data/salesforce.json)" >> $GITHUB_OUTPUT
 
   call-build-and-run:
     needs: read-files
     uses: ./.github/workflows/run.yml
     with:
-      input-json: ${{ env.input-json }}
-      liquid-string: ${{ env.liquid-string }}
+      input-json: ${{ needs.read-files.outputs.input-json }}
+      liquid-string: ${{ needs.read-files.outputs.liquid-string }}
 
   upload-output:
     needs: call-build-and-run
