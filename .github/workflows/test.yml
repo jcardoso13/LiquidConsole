@@ -20,7 +20,7 @@ jobs:
     - name: Read JSON file
       id: read_json
       run: |
-            var=$(jq "." ./tests/data/salesforce.json) 
+            "var=$(jq "." ./tests/data/salesforce.json)" 
             echo $var >> $GITHUB_OUTPUT
 
   call-build-and-run:
