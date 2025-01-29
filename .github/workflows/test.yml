@@ -14,10 +14,12 @@ jobs:
       uses: actions/checkout@v3
     - name: Read liquid file
       id: read_liquid
-      run: echo "var=$(cat ./liquid/salesforceCloudLiquid.liquid)" >> $GITHUB_OUTPUT
+      run: |
+          echo "var=$(cat ./liquid/salesforceCloudLiquid.liquid)" >> $GITHUB_OUTPUT
     - name: Read JSON file
       id: read_json
-      run: echo "var=$(cat ./tests/data/salesforce.json)" >> $GITHUB_OUTPUT
+      run: | 
+          echo "var=$(cat ./tests/data/salesforce.json)" >> $GITHUB_OUTPUT
 
   call-build-and-run:
     needs: read-files
