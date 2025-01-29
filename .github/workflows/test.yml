@@ -15,8 +15,11 @@ jobs:
     - name: Read liquid file
       id: read_liquid
       run: |
-            var=$(cat ./liquid/salesforceCloudLiquid.liquid)
-            echo "liquid_string=$var" >> $GITHUB_OUTPUT
+            {
+              echo "liquid_string<<EOF"
+              cat ./liquid/salesforceCloudLiquid.liquid
+              echo "EOF"
+            } >> "$GITHUB_OUTPUT"
     - name: Read JSON file
       id: read_json
       run: |
