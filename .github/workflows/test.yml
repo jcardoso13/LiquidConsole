@@ -1,4 +1,4 @@
-name: Call Build and Run
+name: Test LiquidConsole
 
 on:
   workflow_dispatch:
