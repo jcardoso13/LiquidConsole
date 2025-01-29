@@ -47,10 +47,14 @@ jobs:
       run: dotnet build --configuration Release --no-restore
 
     - name: Save input JSON to file
-      run: echo '${{ github.event.inputs.input-json }}' > input.json
+      run: |
+          echo ${{ github.event.inputs.input-json }}
+          echo ${{ github.event.inputs.input-json }} >> input.json
 
     - name: Save Liquid string to file
-      run: echo '${{ github.event.inputs.liquid-string }}' > transform.liquid
+      run: |
+          echo ${{ github.event.inputs.liquid-string }}
+          echo ${{ github.event.inputs.liquid-string }} >> transform.liquid
 
     - name: Run the project
       run: dotnet run --no-build --project LiquidConsole.csproj input.json transform.liquid output.json
