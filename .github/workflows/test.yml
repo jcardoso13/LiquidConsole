@@ -10,6 +10,8 @@ jobs:
       input_json: ${{ steps.read_json.outputs.output }}
       liquid_string: ${{ steps.read_liquid.outputs.output }}
     steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
     - name: Read liquid file
       id: read_liquid
       run: echo "output=$(cat ./liquid/salesforceCloudLiquid.liquid)" >> $GITHUB_OUTPUT
