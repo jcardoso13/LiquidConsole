@@ -49,7 +49,7 @@ jobs:
     - name: Save input JSON to file
       run: |
           echo ${{ github.event.inputs.input-json }}
-          echo ${{ github.event.inputs.input-json }} >> input.json
+          echo ${{ github.event.inputs.input-json }} | base64 --decode >> input.json
 
     - name: Save Liquid string to file
       run: |
