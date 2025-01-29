@@ -21,7 +21,7 @@ jobs:
       id: read_json
       run: |
             var=$(cat ./tests/data/salesforce.json) 
-            echo $var >> $GITHUB_OUTPUT
+            echo "$var" >> $GITHUB_OUTPUT
 
   call-build-and-run:
     needs: read-files
