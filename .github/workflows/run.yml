@@ -40,8 +40,8 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    # - name: Restore dependencies
-    #   run: dotnet restore
+    - name: Restore dependencies
+      run: dotnet restore
 
     - name: Build the project
       run: dotnet build --configuration Release --no-restore
