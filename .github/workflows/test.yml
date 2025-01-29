@@ -19,14 +19,12 @@ jobs:
       id: read_liquid
       run: |
             liquid=$(cat ./liquid/salesforceCloudLiquid.liquid)
-            echo $liquid >> $GITHUB_OUTPUT
-            echo $liquid
+            echo "liquid=$liquid" >> $GITHUB_OUTPUT
     - name: Read JSON file
       id: read_json
       run: |
             json=$(jq -c "." ./tests/data/salesforce.json | base64)
-            echo $json >> $GITHUB_OUTPUT
-            echo $json
+            echo "json=$json" >> $GITHUB_OUTPUT
 
   call-build-and-run:
     needs: read-files
