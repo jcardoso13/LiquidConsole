@@ -22,10 +22,10 @@ on:
         description: 'Liquid string'
         required: true
         type: string
-    outputs:
-      output-json:
-        description: 'The output JSON file'
-        value: ${{ steps.upload-output.outputs.output-json }}
+    # outputs:
+    #   output-json:
+    #     description: 'The output JSON file'
+    #     value: ${{ steps.upload-output.outputs.output-json }}
 
 jobs:
   build-and-run:
@@ -50,10 +50,10 @@ jobs:
       run: echo '${{ github.event.inputs.input-json }}' > input.json
 
     - name: Save Liquid string to file
-      run: echo '${{ github.event.inputs.liquid-string }}' > example.liquid
+      run: echo '${{ github.event.inputs.liquid-string }}' > transform.liquid
 
     - name: Run the project
-      run: dotnet run --no-build --project LiquidConsole.csproj input.json example.liquid output.json
+      run: dotnet run --no-build --project LiquidConsole.csproj input.json transform.liquid output.json
 
     - name: Upload output.json as artifact
       id: upload-output
