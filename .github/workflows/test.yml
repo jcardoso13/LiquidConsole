@@ -12,10 +12,10 @@ jobs:
     steps:
     - name: Read liquid file
       id: read_liquid
-      run: echo "output=$(cat liquid/salesforceCloudLiquid.liquid)" >> $GITHUB_OUTPUT
+      run: echo "output=$(cat ./liquid/salesforceCloudLiquid.liquid)" >> $GITHUB_OUTPUT
     - name: Read JSON file
       id: read_json
-      run: echo "output=$(cat tests/data/salesforce.json)" >> $GITHUB_OUTPUT
+      run: echo "output=$(cat ./tests/data/salesforce.json)" >> $GITHUB_OUTPUT
 
   call-build-and-run:
     needs: read-files
