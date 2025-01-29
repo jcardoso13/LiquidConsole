@@ -24,7 +24,7 @@ jobs:
     - name: Read JSON file
       id: read_json
       run: |
-            json=$(jq "." ./tests/data/salesforce.json)
+            json=$(jq -c "." ./tests/data/salesforce.json | base64)
             echo $json >> $GITHUB_OUTPUT
             echo $json
 
