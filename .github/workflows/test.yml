@@ -19,7 +19,7 @@ jobs:
 
   call-build-and-run:
     needs: read-files
-    uses: ./.github/workflows/run.yml
+    uses: jcardoso13/LiquidConsole/.github/workflows/run.yml@main
     with:
       input-json: ${{ needs.read-files.outputs.input_json }}
       liquid-string: ${{ needs.read-files.outputs.liquid_string }}
