@@ -15,13 +15,13 @@ jobs:
     - name: Read liquid file
       id: read_liquid
       run: |
-            cat ./liquid/salesforceCloudLiquid.liquid >> $var
-            echo $var >> $GITHUB_OUTPUT
+            var=$(cat ./liquid/salesforceCloudLiquid.liquid)
+            echo "$var" >> $GITHUB_OUTPUT
     - name: Read JSON file
       id: read_json
       run: |
-            jq "." ./tests/data/salesforce.json >> $var
-            echo $var >> $GITHUB_OUTPUT
+            var= $(jq "." ./tests/data/salesforce.json)
+            echo "$var" >> $GITHUB_OUTPUT
 
   call-build-and-run:
     needs: read-files
