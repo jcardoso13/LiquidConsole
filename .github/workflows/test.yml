@@ -7,24 +7,21 @@ jobs:
   read-files:
     runs-on: ubuntu-latest
     outputs:
-      input_json: ${{ steps.read_json.outputs.input_json }}
-      liquid_string: ${{ steps.read_liquid.outputs.liquid_string }}
+      input_json: ${{ steps.read_json.outputs.var }}
+      liquid_string: ${{ steps.read_liquid.outputs.var }}
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
     - name: Read liquid file
       id: read_liquid
       run: |
-            {
-              echo "liquid_string<<EOF"
-              cat ./liquid/salesforceCloudLiquid.liquid
-              echo "EOF"
-            } >> "$GITHUB_OUTPUT"
+            cat ./liquid/salesforceCloudLiquid.liquid >> $var
+            echo $var >> $GITHUB_OUTPUT
     - name: Read JSON file
       id: read_json
       run: |
-            var=$(jq -c "." ./tests/data/salesforce.json)
-            echo "input_json=$var" >> $GITHUB_OUTPUT
+            jq "." ./tests/data/salesforce.json >> $var
+            echo $var >> $GITHUB_OUTPUT
 
   call-build-and-run:
     needs: read-files
