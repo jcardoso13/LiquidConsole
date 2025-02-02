@@ -4,22 +4,22 @@ on:
   workflow_dispatch:
     inputs:
       input-json:
-        description: 'Input JSON file'
+        description: 'JSON file path'
         required: true
         type: string
       liquid-string:
-        description: 'Liquid string'
+        description: 'Liquid file path'
         required: true
         type: string
 
   workflow_call:
     inputs:
       input-json:
-        description: 'Input JSON file'
+        description: 'JSON file path'
         required: true
         type: string
       liquid-string:
-        description: 'Liquid string'
+        description: 'Liquid file path'
         required: true
         type: string
     # outputs:
@@ -46,18 +46,18 @@ jobs:
     - name: Build the project
       run: dotnet build --configuration Release --no-restore
 
-    - name: Save input JSON to file
-      run: |
-          echo ${{ github.event.inputs.input-json }}
-          echo ${{ github.event.inputs.input-json }} | base64 --decode >> input.json
+    # - name: Save input JSON to file
+    #   run: |
+    #       echo ${{ github.event.inputs.input-json }}
+    #       echo ${{ github.event.inputs.input-json }} | base64 --decode >> input.json
 
-    - name: Save Liquid string to file
-      run: |
-          echo ${{ github.event.inputs.liquid-string }}
-          echo ${{ github.event.inputs.liquid-string }} >> transform.liquid
+    # - name: Save Liquid string to file
+    #   run: |
+    #       echo ${{ github.event.inputs.liquid-string }}
+    #       echo ${{ github.event.inputs.liquid-string }} >> transform.liquid
 
     - name: Run the project
-      run: dotnet run --configuration Release input.json transform.liquid output.json
+      run: dotnet run --configuration Release ${{ github.event.inputs.input-json }} ${{ github.event.inputs.liquid-string }} ./output.json
 
     - name: Upload output.json as artifact
       id: upload-output
