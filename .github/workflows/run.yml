@@ -33,6 +33,13 @@ jobs:
       #output-json: ${{ steps.upload-output.outputs.output-json }}
       output-json: ./output.json
     steps:
+
+
+    - name: Set up .NET
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+
     - name: Clone Git Repo
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
@@ -41,11 +48,6 @@ jobs:
             cd ./LiquidConsole/
             pwd
             ls
-
-    - name: Set up .NET
-      uses: actions/setup-dotnet@v4
-      with:
-        dotnet-version: '8.0.x'
 
     - name: Restore dependencies
       run: dotnet restore ./LiquidConsole.csproj
