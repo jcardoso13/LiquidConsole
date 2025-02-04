@@ -85,10 +85,12 @@ jobs:
           pwd
           ls
           cat ./output.json
-          echo "## CloudLiquid Logs 🚀" >> $GITHUB_STEP_SUMMARY
-          echo "```json" >> $GITHUB_STEP_SUMMARY
-          cat ./output.json >> $GITHUB_STEP_SUMMARY
-          echo "```" >> $GITHUB_STEP_SUMMARY
-          cat ./logs.txt >> $GITHUB_STEP_SUMMARY
+          echo "## CloudLiquid Logs 🚀\n" >> ./summary.md
+          echo "```json \n" >> ./summary.md
+          cat ./output.json >> ./summary.md
+          echo "``` \n" >> ./summary.md
+          cat ./logs.txt >> ./summary.md
+          cat ./summary.md > $GITHUB_STEP_SUMMARY
+
       working-directory: ./LiquidConsole
 
