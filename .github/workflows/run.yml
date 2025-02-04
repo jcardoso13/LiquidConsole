@@ -48,10 +48,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore --project ./LiquidConsole.csproj
 
     - name: Build the project
-      run: dotnet build --configuration Release --no-restore
+      run: dotnet build --configuration Release --project ./LiquidConsole.csproj --no-restore
 
     - name: Save input JSON to file
       run: |
@@ -66,7 +66,7 @@ jobs:
     #      echo "${{ inputs.liquid-string }}" >> transform.liquid
 
     - name: Run the project
-      run: dotnet run --configuration Release input.json transform.liquid ./output.json >> logs.txt
+      run: dotnet run --configuration Release --project ./LiquidConsole.csproj input.json transform.liquid output.json >> logs.txt
 
     - name: Upload Logs as artifact
       id: upload-output
