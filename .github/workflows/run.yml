@@ -39,6 +39,8 @@ jobs:
       run: |
             git clone https://x-access-token:${GITHUB_TOKEN}@github.com/jcardoso13/LiquidConsole.git
             cd ./LiquidConsole/
+            pwd
+            ls
 
     - name: Set up .NET
       uses: actions/setup-dotnet@v4
