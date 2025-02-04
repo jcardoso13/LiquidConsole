@@ -48,10 +48,10 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Restore dependencies
-      run: dotnet restore --project ./LiquidConsole.csproj
+      run: dotnet restore ./LiquidConsole.csproj
 
     - name: Build the project
-      run: dotnet build --configuration Release --project ./LiquidConsole.csproj --no-restore
+      run: dotnet build --configuration Release ./LiquidConsole.csproj --no-restore
 
     - name: Save input JSON to file
       run: |
