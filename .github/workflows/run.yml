@@ -41,7 +41,7 @@ jobs:
       uses: actions/setup-dotnet@v4
       with:
         dotnet-version: '8.0.x'
-             
+
     - name: Clone Git Repo
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
@@ -56,7 +56,7 @@ jobs:
       working-directory: ./LiquidConsole
 
     - name: Build the project
-      run: dotnet build --configuration Release ./LiquidConsole.csproj --no-restore
+      run: dotnet build --configuration Release --no-restore
       working-directory: ./LiquidConsole
 
     - name: Save input JSON to file
@@ -74,7 +74,7 @@ jobs:
       working-directory: ./LiquidConsole
 
     - name: Run the project
-      run: dotnet run --configuration Release --project ./LiquidConsole.csproj input.json transform.liquid output.json >> logs.txt
+      run: dotnet run --configuration Release  input.json transform.liquid output.json >> logs.txt
       working-directory: ./LiquidConsole
 
     - name: Upload Logs as artifact
