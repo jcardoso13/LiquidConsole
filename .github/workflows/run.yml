@@ -90,6 +90,7 @@ jobs:
           cat ./output.json >> ./summary.md
           echo "```" >> ./summary.md
           cat ./logs.txt >> ./summary.md
+          cat ./summary.md
           cat ./summary.md > $GITHUB_STEP_SUMMARY
 
       working-directory: ./LiquidConsole
