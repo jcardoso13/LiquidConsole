@@ -14,7 +14,7 @@ jobs:
       liquid_string: ${{ steps.read_liquid.outputs.liquid }}
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Read liquid file
       id: read_liquid
       run: |
