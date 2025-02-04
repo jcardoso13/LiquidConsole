@@ -62,6 +62,7 @@ jobs:
     - name: Save input JSON to file
       run: |
             echo ${{ inputs.input-json }}
+            cat ../${{ inputs.input-json }}
             cat ../${{ inputs.input-json }} > input.json
     #       echo "${{ inputs.input-json }}" | base64 --decode >> input.json
       working-directory: ./LiquidConsole
@@ -69,12 +70,13 @@ jobs:
     - name: Save Liquid string to file
       run: |
            echo ${{ inputs.liquid-string }}
+           cat ../${{ inputs.liquid-string }}
            cat ../${{ inputs.liquid-string }} > transform.liquid
     #      echo "${{ inputs.liquid-string }}" >> transform.liquid
       working-directory: ./LiquidConsole
 
     - name: Run the project
-      run: dotnet run --configuration Release  input.json transform.liquid output.json >> logs.txt
+      run: dotnet run --configuration Release ./input.json ./transform.liquid ./output.json >> logs.txt
       working-directory: ./LiquidConsole
 
     - name: Upload Logs as artifact
