@@ -18,15 +18,15 @@ jobs:
     - name: Read liquid file
       id: read_liquid
       run: |
-            liquid=$(cat ./liquid/salesforceCloudLiquid.liquid)
-            echo liquid=$liquid >> $GITHUB_OUTPUT
-            echo $liquid
+        liquid=$(cat ./liquid/salesforceCloudLiquid.liquid)
+        echo liquid=$liquid >> $GITHUB_OUTPUT
+        echo $liquid
     - name: Read JSON file
       id: read_json
       run: |
-            json=$(jq "." ./tests/data/salesforce.json)
-            echo json=$json >> $GITHUB_OUTPUT
-            echo $json
+        json=$(jq "." ./tests/data/salesforce.json)
+        echo json=$json >> $GITHUB_OUTPUT
+        echo $json
 
   call-build-and-run:
     needs: read-files
@@ -35,12 +35,15 @@ jobs:
       input-json: "tests/data/salesforce.json"
       liquid-string: "liquid/salesforceCloudLiquid.liquid"
 
-  upload-output:
+  download-and-check-output:
     needs: call-build-and-run
     runs-on: ubuntu-latest
     steps:
-    - name: Upload output.json as artifact
-      uses: actions/upload-artifact@v4
+    - name: Download output.json artifact
+      uses: actions/download-artifact@v4
       with:
         name: output-json
-        path: ${{ needs.call-build-and-run.outputs.output-json }}
+        path: ./output
+
+    - name: Display output.json
+      run: cat ./output/output.json

@@ -85,12 +85,17 @@ jobs:
           pwd
           ls
           cat ./output.json
-          echo "## CloudLiquid Logs 🚀\n" >> ./summary.md
-          echo "```json \n" >> ./summary.md
+          echo "## CloudLiquid Logs 🚀" >> ./summary.md
+          echo "```json" >> ./summary.md
           cat ./output.json >> ./summary.md
-          echo "``` \n" >> ./summary.md
+          echo "```" >> ./summary.md
           cat ./logs.txt >> ./summary.md
           cat ./summary.md > $GITHUB_STEP_SUMMARY
 
       working-directory: ./LiquidConsole
 
+    - name: Upload output.json as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output-json
+        path: ./output.json
