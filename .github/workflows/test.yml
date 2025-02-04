@@ -32,8 +32,8 @@ jobs:
     needs: read-files
     uses: jcardoso13/LiquidConsole/.github/workflows/run.yml@main
     with:
-      input-json: ${{ needs.read-files.outputs.input_json }}
-      liquid-string: ${{ needs.read-files.outputs.liquid_string }}
+      input-json: ./tests/data/salesforce.json
+      liquid-string: ./liquid/salesforceCloudLiquid.liquid
 
   upload-output:
     needs: call-build-and-run

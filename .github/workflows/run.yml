@@ -22,15 +22,17 @@ on:
         description: 'Liquid file path'
         required: true
         type: string
-    # outputs:
-    #   output-json:
-    #     description: 'The output JSON file'
-    #     value: ${{ steps.upload-output.outputs.output-json }}
+      outputs:
+        output-json:
+          description: 'The output JSON file'
+          value: ${{ jobs.build-and-run.outputs.output-json }}
 
 jobs:
   build-and-run:
     runs-on: ubuntu-latest
-
+    outputs:
+      #output-json: ${{ steps.upload-output.outputs.output-json }}
+      output-json: ./output.json
     steps:
     - name: Checkout repository
       uses: actions/checkout@v3
@@ -57,11 +59,11 @@ jobs:
     #       echo ${{ github.event.inputs.liquid-string }} >> transform.liquid
 
     - name: Run the project
-      run: dotnet run --configuration Release ${{ github.event.inputs.input-json }} ${{ github.event.inputs.liquid-string }} ./output.json
+      run: dotnet run --configuration Release ${{ github.event.inputs.input-json }} ${{ github.event.inputs.liquid-string }} ./output.json >> logs.txt
 
-    - name: Upload output.json as artifact
+    - name: Upload Logs as artifact
       id: upload-output
       uses: actions/upload-artifact@v3
       with:
-        name: output-json
-        path: output.json
+        name: logs
+        path: logs.txt
