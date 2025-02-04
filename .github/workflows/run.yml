@@ -22,10 +22,10 @@ on:
         description: 'Liquid file path'
         required: true
         type: string
-      outputs:
-        output-json:
-          description: 'The output JSON file'
-          value: ${{ jobs.build-and-run.outputs.output-json }}
+    outputs:
+      output-json:
+        description: 'The output JSON file'
+        value: ${{ jobs.build-and-run.outputs.output-json }}
 
 jobs:
   build-and-run:
