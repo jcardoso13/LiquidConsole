@@ -84,6 +84,7 @@ jobs:
       run: |
           pwd
           ls
+          cat ./output.json
           echo "## CloudLiquid Logs 🚀" >> $GITHUB_STEP_SUMMARY
           echo "```json" >> $GITHUB_STEP_SUMMARY
           cat ./output.json >> $GITHUB_STEP_SUMMARY
