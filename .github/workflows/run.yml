@@ -90,11 +90,6 @@ jobs:
           echo "\`\`\`json" >> ./summary.md
           cat ./input.json >> ./summary.md
           echo "\`\`\`" >> ./summary.md
-          echo "" >> ./summary.md
-          echo "### Liquid File" >> ./summary.md
-          echo "\`\`\`html" >> ./summary.md
-          cat ./transform.liquid >> ./summary.md
-          echo "\`\`\`" >> ./summary.md
           echo "### Output JSON" >> ./summary.md
           echo "\`\`\`json" >> ./summary.md
           cat ./formatted_output.json >> ./summary.md
