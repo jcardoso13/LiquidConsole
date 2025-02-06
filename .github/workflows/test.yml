@@ -43,8 +43,5 @@ jobs:
     - name: Download output.json artifact
       uses: actions/download-artifact@v4
       with:
-        name: output-json
+        name: output-file
         path: ./output
-
-    - name: Display output.json
-      run: cat ./output/output.json
