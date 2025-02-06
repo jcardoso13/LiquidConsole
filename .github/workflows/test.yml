@@ -32,7 +32,7 @@ jobs:
     needs: read-files
     uses: jcardoso13/LiquidConsole/.github/workflows/run.yml@main
     with:
-      input-json: "tests/data/salesforce.json"
+      input-file: "tests/data/salesforce.json"
       liquid-string: "liquid/salesforceCloudLiquid.liquid"
       output-format: "json"
 
