@@ -34,6 +34,7 @@ jobs:
     with:
       input-json: "tests/data/salesforce.json"
       liquid-string: "liquid/salesforceCloudLiquid.liquid"
+      output-format: "json"
 
   download-and-check-output:
     needs: call-build-and-run

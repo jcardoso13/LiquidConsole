@@ -21,6 +21,11 @@ on:
         description: 'Liquid file path'
         required: true
         type: string
+      output-fornmat:
+        description: 'Output format'
+        required: false
+        type: string
+        default: 'txt'
     outputs:
       output-json:
         description: 'The output JSON file'
@@ -76,7 +81,7 @@ jobs:
       working-directory: ./LiquidConsole
 
     - name: Run the project
-      run: dotnet run --configuration Release ./input.json ./transform.liquid ./output.json >> logs.txt
+      run: dotnet run --configuration Release ./input.json ./transform.liquid ./output.${{ inputs.output-fornmat }} >> logs.txt
       working-directory: ./LiquidConsole
 
     - name: Upload Logs as artifact
@@ -84,7 +89,7 @@ jobs:
       run: |
           pwd
           ls
-          cat ./output.json | jq '.' > formatted_output.json
+          cat ./output.${{ inputs.output-fornmat }} | jq '.' > formatted_output.json
           echo "## CloudLiquid Logs 🚀" >> ./summary.md
           echo "### Input JSON" >> ./summary.md
           echo "\`\`\`json" >> ./summary.md
