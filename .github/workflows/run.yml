@@ -3,8 +3,8 @@ name: Build and Run
 on:
   workflow_call:
     inputs:
-      input-json:
-        description: 'JSON file path'
+      input-file:
+        description: 'file path'
         required: true
         type: string
       liquid-string:
@@ -53,11 +53,17 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       working-directory: ./LiquidConsole
 
-    - name: Save input JSON to file
+    - name: Determine input format
+      id: determine-input-format
       run: |
-        echo ${{ inputs.input-json }}
-        cat ../${{ inputs.input-json }}
-        cat ../${{ inputs.input-json }} > input.json
+        input_format=$(echo "${{ inputs.input-file }}" | awk -F. '{print $NF}')
+        echo "input-format=$input_format" >> $GITHUB_ENV
+
+    - name: Save input to file
+      run: |
+        echo ${{ inputs.input-file }}
+        cat ../${{ inputs.input-file }}
+        cat ../${{ inputs.input-file }} > input.${{ env.input-format }}
       working-directory: ./LiquidConsole
 
     - name: Save Liquid string to file
@@ -68,7 +74,7 @@ jobs:
       working-directory: ./LiquidConsole
 
     - name: Run the project
-      run: dotnet run --configuration Release ./input.json ./transform.liquid ./output.${{ inputs.output-format }} >> logs.txt
+      run: dotnet run --configuration Release ./input.${{ env.input-format }} ./transform.liquid ./output.${{ inputs.output-format }}
       working-directory: ./LiquidConsole
 
     - name: Upload Logs as artifact
@@ -82,8 +88,8 @@ jobs:
           cat ./output.${{ inputs.output-format }} > formatted_output
         fi
         echo "## CloudLiquid Logs 🚀" >> ./summary.md
-        echo "### Input JSON" >> ./summary.md
-        echo "\`\`\`json" >> ./summary.md
+        echo "### Input Data" >> ./summary.md
+        echo "\`\`\`${{ env.input-format }}" >> ./summary.md
         cat ./input.json >> ./summary.md
         echo "" >> ./summary.md
         echo "\`\`\`" >> ./summary.md
@@ -94,19 +100,18 @@ jobs:
         echo "" >> ./summary.md
         echo "\`\`\`" >> ./summary.md
         echo "" >> ./summary.md
-        echo "### Output JSON" >> ./summary.md
-        echo "\`\`\`json" >> ./summary.md
+        echo "### Output Data" >> ./summary.md
+        echo "\`\`\`${{ inputs.output-format }}" >> ./summary.md
         cat ./formatted_output >> ./summary.md
         echo "" >> ./summary.md
         echo "\`\`\`" >> ./summary.md
-        cat ./logs.txt >> ./summary.md
         cat ./summary.md
         cat ./summary.md > $GITHUB_STEP_SUMMARY
       working-directory: ./LiquidConsole
 
-    - name: Upload output.json as artifact
+    - name: Upload output.file as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: output-json
-        path: ./LiquidConsole/output.json
+        name: output-file
+        path: ./LiquidConsole/output.${{ inputs.output-format }}
 
