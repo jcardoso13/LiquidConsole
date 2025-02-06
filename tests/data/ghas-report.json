@@ -1,0 +1,2499 @@
+{
+  "id": "58292515-2d0a-4dae-95bc-784d54cfb246",
+  "created_at": "2025-01-10T17:22:16.948Z",
+  "inputs": {
+    "team": "",
+    "repo": "demo-csharp",
+    "org": "jcardoso13",
+    "features": [
+      "dependabot",
+      "code-scanning",
+      "secret-scanning"
+    ],
+    "frequency": "daily",
+    "outputFormat": [
+      "json",
+      "pdf",
+      "github-output",
+      "github-output"
+    ]
+  },
+  "repositories": [
+    {
+      "owner": "jcardoso13",
+      "name": "demo-csharp",
+      "features": [
+        {
+          "prettyName": "Dependabot",
+          "metrics": {
+            "fixedLastXDays": 0,
+            "openedLastXDays": 0,
+            "openVulnerabilities": 8,
+            "top10": [
+              {
+                "number": 9,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-cm5g-3pgc-8rg4",
+                  "cve_id": "CVE-2024-10491",
+                  "summary": "Express ressource injection",
+                  "description": "A vulnerability has been identified in the Express response.links function, allowing for arbitrary resource injection in the Link header when unsanitized data is used.\n\nThe issue arises from improper sanitization in `Link` header values, which can allow a combination of characters like `,`, `;`, and `<>` to preload malicious resources.\n\nThis vulnerability is especially relevant for dynamic parameters.",
+                  "severity": "medium",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-cm5g-3pgc-8rg4",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2024-10491",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-10491"
+                    },
+                    {
+                      "url": "https://www.herodevs.com/vulnerability-directory/cve-2024-10491"
+                    },
+                    {
+                      "url": "https://github.com/expressjs/express/issues/6222"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-cm5g-3pgc-8rg4"
+                    }
+                  ],
+                  "published_at": "2024-10-29T18:30:37Z",
+                  "updated_at": "2024-12-19T17:52:11Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "express"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "<= 3.21.4",
+                      "first_patched_version": {
+                        "identifier": "4.0.0-rc1"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N",
+                      "score": 4
+                    },
+                    "cvss_v4": {
+                      "vector_string": null,
+                      "score": 0
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:C/C:L/I:N/A:N",
+                    "score": 4
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-74",
+                      "name": "Improper Neutralization of Special Elements in Output Used by a Downstream Component ('Injection')"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "severity": "medium",
+                  "vulnerable_version_range": "<= 3.21.4",
+                  "first_patched_version": {
+                    "identifier": "4.0.0-rc1"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/9",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/9",
+                "created_at": "2024-11-25T21:53:21Z",
+                "updated_at": "2024-11-25T21:53:21Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              },
+              {
+                "number": 5,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-rv95-896h-c2vc",
+                  "cve_id": "CVE-2024-29041",
+                  "summary": "Express.js Open Redirect in malformed URLs",
+                  "description": "### Impact\n\nVersions of Express.js prior to 4.19.2 and pre-release alpha and beta versions before 5.0.0-beta.3 are affected by an open redirect vulnerability using malformed URLs.\n\nWhen a user of Express performs a redirect using a user-provided URL Express performs an encode [using `encodeurl`](https://github.com/pillarjs/encodeurl) on the contents before passing it to the `location` header. This can cause malformed URLs to be evaluated in unexpected ways by common redirect allow list implementations in Express applications, leading to an Open Redirect via bypass of a properly implemented allow list.\n\nThe main method impacted is `res.location()` but this is also called from within `res.redirect()`.\n\n### Patches\n\nhttps://github.com/expressjs/express/commit/0867302ddbde0e9463d0564fea5861feb708c2dd\nhttps://github.com/expressjs/express/commit/0b746953c4bd8e377123527db11f9cd866e39f94\n\nAn initial fix went out with `express@4.19.0`, we then patched a feature regression in `4.19.1` and added improved handling for the bypass in `4.19.2`.\n\n### Workarounds\n\nThe fix for this involves pre-parsing the url string with either `require('node:url').parse` or `new URL`. These are steps you can take on your own before passing the user input string to `res.location` or `res.redirect`.\n\n### References\n\nhttps://github.com/expressjs/express/pull/5539\nhttps://github.com/koajs/koa/issues/1800\nhttps://expressjs.com/en/4x/api.html#res.location",
+                  "severity": "medium",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-rv95-896h-c2vc",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2024-29041",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://github.com/expressjs/express/security/advisories/GHSA-rv95-896h-c2vc"
+                    },
+                    {
+                      "url": "https://github.com/koajs/koa/issues/1800"
+                    },
+                    {
+                      "url": "https://github.com/expressjs/express/pull/5539"
+                    },
+                    {
+                      "url": "https://github.com/expressjs/express/commit/0867302ddbde0e9463d0564fea5861feb708c2dd"
+                    },
+                    {
+                      "url": "https://github.com/expressjs/express/commit/0b746953c4bd8e377123527db11f9cd866e39f94"
+                    },
+                    {
+                      "url": "https://expressjs.com/en/4x/api.html#res.location"
+                    },
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-29041"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-rv95-896h-c2vc"
+                    }
+                  ],
+                  "published_at": "2024-03-25T19:40:26Z",
+                  "updated_at": "2024-03-27T21:47:29Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "express"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 4.19.2",
+                      "first_patched_version": {
+                        "identifier": "4.19.2"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "express"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 5.0.0-alpha.1, < 5.0.0-beta.3",
+                      "first_patched_version": {
+                        "identifier": "5.0.0-beta.3"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                      "score": 6.1
+                    },
+                    "cvss_v4": {
+                      "vector_string": null,
+                      "score": 0
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                    "score": 6.1
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-601",
+                      "name": "URL Redirection to Untrusted Site ('Open Redirect')"
+                    },
+                    {
+                      "cwe_id": "CWE-1286",
+                      "name": "Improper Validation of Syntactic Correctness of Input"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "severity": "medium",
+                  "vulnerable_version_range": "< 4.19.2",
+                  "first_patched_version": {
+                    "identifier": "4.19.2"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/5",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/5",
+                "created_at": "2024-08-12T09:35:30Z",
+                "updated_at": "2024-08-12T09:35:30Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              },
+              {
+                "number": 4,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-6c3j-c64m-qhgq",
+                  "cve_id": "CVE-2019-11358",
+                  "summary": "XSS in jQuery as used in Drupal, Backdrop CMS, and other products",
+                  "description": "jQuery from 1.1.4 until 3.4.0, as used in Drupal, Backdrop CMS, and other products, mishandles `jQuery.extend(true, {}, ...)` because of `Object.prototype` pollution. If an unsanitized source object contained an enumerable `__proto__` property, it could extend the native `Object.prototype`.",
+                  "severity": "medium",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-6c3j-c64m-qhgq",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2019-11358",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2019-11358"
+                    },
+                    {
+                      "url": "https://backdropcms.org/security/backdrop-sa-core-2019-009"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/commit/753d591aea698e57d6db58c9f722cd0808619b1b"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/pull/4333"
+                    },
+                    {
+                      "url": "https://snyk.io/vuln/SNYK-JS-JQUERY-174006"
+                    },
+                    {
+                      "url": "https://www.drupal.org/sa-core-2019-006"
+                    },
+                    {
+                      "url": "https://access.redhat.com/errata/RHSA-2019:3023"
+                    },
+                    {
+                      "url": "https://access.redhat.com/errata/RHSA-2019:3024"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc@%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844@%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f@%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7@%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205@%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6@%3Ccommits.roller.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3@%3Ccommits.nifi.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766@%3Cdev.syncope.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355@%3Cdev.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b@%3Ccommits.nifi.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2019/05/msg00006.html"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2019/05/msg00029.html"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2020/02/msg00024.html"
+                    },
+                    {
+                      "url": "https://www.debian.org/security/2019/dsa-4434"
+                    },
+                    {
+                      "url": "https://www.debian.org/security/2019/dsa-4460"
+                    },
+                    {
+                      "url": "https://www.synology.com/security/advisory/Synology_SA_19_19"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2019-08"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2020-02"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00006.html"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2019-08/msg00025.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/153237/RetireJS-CORS-Issue-Script-Execution.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html"
+                    },
+                    {
+                      "url": "http://www.openwall.com/lists/oss-security/2019/06/03/2"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734@%3Cdev.storm.apache.org%3E"
+                    },
+                    {
+                      "url": "https://kb.pulsesecure.net/articles/Pulse_Security_Advisories/SA44601"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#434"
+                    },
+                    {
+                      "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2019-11358.yml"
+                    },
+                    {
+                      "url": "https://security.snyk.io/vuln/SNYK-DOTNET-JQUERY-450226"
+                    },
+                    {
+                      "url": "https://access.redhat.com/errata/RHBA-2019:1570"
+                    },
+                    {
+                      "url": "https://access.redhat.com/errata/RHSA-2019:1456"
+                    },
+                    {
+                      "url": "https://access.redhat.com/errata/RHSA-2019:2587"
+                    },
+                    {
+                      "url": "https://seclists.org/bugtraq/2019/Apr/32"
+                    },
+                    {
+                      "url": "https://seclists.org/bugtraq/2019/Jun/12"
+                    },
+                    {
+                      "url": "https://seclists.org/bugtraq/2019/May/18"
+                    },
+                    {
+                      "url": "https://www.oracle.com//security-alerts/cpujul2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuApr2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuapr2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html"
+                    },
+                    {
+                      "url": "http://seclists.org/fulldisclosure/2019/May/10"
+                    },
+                    {
+                      "url": "http://seclists.org/fulldisclosure/2019/May/11"
+                    },
+                    {
+                      "url": "http://seclists.org/fulldisclosure/2019/May/13"
+                    },
+                    {
+                      "url": "https://supportportal.juniper.net/s/article/2021-07-Security-Bulletin-Junos-OS-Multiple-J-Web-vulnerabilities-resolved-in-Junos-OS-21-2R1"
+                    },
+                    {
+                      "url": "https://web.archive.org/web/20190824065237/http://www.securityfocus.com/bid/108023"
+                    },
+                    {
+                      "url": "https://github.com/django/django/commit/34ec52269ade54af31a021b12969913129571a3f"
+                    },
+                    {
+                      "url": "https://github.com/django/django/commit/95649bc08547a878cebfa1d019edec8cb1b80829"
+                    },
+                    {
+                      "url": "https://github.com/django/django/commit/baaf187a4e354bf3976c51e2c83a0d2f8ee6e6ad"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2023/08/msg00040.html"
+                    },
+                    {
+                      "url": "http://www.securityfocus.com/bid/108023"
+                    },
+                    {
+                      "url": "https://blog.jquery.com/2019/04/10/jquery-3-4-0-released"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/08720ef215ee7ab3386c05a1a90a7d1c852bf0706f176a7816bf65fc%40%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f%40%3Cdev.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/5928aa293e39d248266472210c50f176cac1535220f2486e6a7fa844%40%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/6097cdbd6f0a337bedd9bb5cc441b2d525ff002a96531de367e4259f%40%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/88fb0362fd40e5b605ea8149f63241537b8b6fb5bfa315391fc5cbb7%40%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442%40%3Cdev.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/b736d0784cf02f5a30fbb4c5902762a15ad6d47e17e2c5a17b7d6205%40%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6%40%3Ccommits.roller.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/bcce5a9c532b386c68dab2f6b3ce8b0cc9b950ec551766e76391caa3%40%3Ccommits.nifi.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc%40%3Cissues.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r2041a75d3fc09dec55adfd95d598b38d22715303f65c997c054844c9%40%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r2baacab6e0acb5a2092eb46ae04fd6c3e8277b4fd79b1ffb7f3254fa%40%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r38f0d1aa3c923c22977fe7376508f030f22e22c1379fbb155bf29766%40%3Cdev.syncope.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r41b5bfe009c845f67d4f68948cc9419ac2d62e287804aafd72892b08%40%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r7aac081cbddb6baa24b75e74abf0929bf309b176755a53e3ed810355%40%3Cdev.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r7d64895cc4dff84d0becfc572b20c0e4bf9bfa7b10c6f5f73e783734%40%3Cdev.storm.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r7e8ebccb7c022e41295f6fdb7b971209b83702339f872ddd8cf8bf73%40%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rac25da84ecdcd36f6de5ad0d255f4e967209bbbebddb285e231da37d%40%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rca37935d661f4689cb4119f1b3b224413b22be161b678e6e6ce0c69b%40%3Ccommits.nifi.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/4UOAZIFCSZ3ENEFOR5IXX6NFAD3HV7FA"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/5IABSKTYZ5JUGL735UKGXL5YPRYOPUYI"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/KYH3OAGR2RTCHRA5NOKX2TES7SNQMWGO"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QV3PKZC3PQCO3273HAT76PAQZFBEO4KP"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/RLXRX23725JL366CNZGJZ7AQQB7LHQ6F"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/WZW27UCJ5CYFL4KFFFMYMIBNMIU2ALG5"
+                    },
+                    {
+                      "url": "https://security.netapp.com/advisory/ntap-20190919-0001"
+                    },
+                    {
+                      "url": "https://www.djangoproject.com/weblog/2019/jun/03/security-releases"
+                    },
+                    {
+                      "url": "https://www.privacy-wise.com/mitigating-cve-2019-11358-in-old-versions-of-jquery"
+                    },
+                    {
+                      "url": "https://github.com/maximebf/php-debugbar/issues/447"
+                    },
+                    {
+                      "url": "https://github.com/maximebf/php-debugbar/commit/847216e60544258c881f2733d699bbcfeefac0fc"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-6c3j-c64m-qhgq"
+                    }
+                  ],
+                  "published_at": "2019-04-26T16:29:11Z",
+                  "updated_at": "2024-11-05T20:16:56Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "rubygems",
+                        "name": "jquery-rails"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 4.3.4",
+                      "first_patched_version": {
+                        "identifier": "4.3.4"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "pip",
+                        "name": "django"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 2.0a1, < 2.1.9",
+                      "first_patched_version": {
+                        "identifier": "2.1.9"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "pip",
+                        "name": "django"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 2.2a1, < 2.2.2",
+                      "first_patched_version": {
+                        "identifier": "2.2.2"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.1.4, < 3.4.0",
+                      "first_patched_version": {
+                        "identifier": "3.4.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "nuget",
+                        "name": "jQuery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.1.4, < 3.4.0",
+                      "first_patched_version": {
+                        "identifier": "3.4.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "maven",
+                        "name": "org.webjars.npm:jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.1.4, < 3.4.0",
+                      "first_patched_version": {
+                        "identifier": "3.4.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "composer",
+                        "name": "maximebf/debugbar"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 1.19.0",
+                      "first_patched_version": {
+                        "identifier": "1.19.0"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                      "score": 6.1
+                    },
+                    "cvss_v4": {
+                      "vector_string": null,
+                      "score": 0
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                    "score": 6.1
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-79",
+                      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+                    },
+                    {
+                      "cwe_id": "CWE-1321",
+                      "name": "Improperly Controlled Modification of Object Prototype Attributes ('Prototype Pollution')"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "severity": "medium",
+                  "vulnerable_version_range": ">= 1.1.4, < 3.4.0",
+                  "first_patched_version": {
+                    "identifier": "3.4.0"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/4",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/4",
+                "created_at": "2024-08-12T09:35:30Z",
+                "updated_at": "2024-08-12T09:35:30Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              },
+              {
+                "number": 3,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-rmxg-73gg-4p98",
+                  "cve_id": "CVE-2015-9251",
+                  "summary": "Cross-Site Scripting (XSS) in jquery",
+                  "description": "Affected versions of `jquery` interpret `text/javascript` responses from cross-origin ajax requests, and automatically execute the contents in `jQuery.globalEval`, even when the ajax request doesn't contain the `dataType` option.\n\n\n## Recommendation\n\nUpdate to version 3.0.0 or later.",
+                  "severity": "medium",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-rmxg-73gg-4p98",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2015-9251",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2015-9251"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/issues/2432"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/pull/2588"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/commit/b078a62013782c7424a4a61a240c23c4c0b42614"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/pull/2588/commits/c254d308a7d3f1eac4d0b42837804cfffcba4bb2"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/commit/f60729f3903d17917dc351f3ac87794de379b0cc"
+                    },
+                    {
+                      "url": "https://access.redhat.com/errata/RHSA-2020:0481"
+                    },
+                    {
+                      "url": "https://access.redhat.com/errata/RHSA-2020:0729"
+                    },
+                    {
+                      "url": "https://ics-cert.us-cert.gov/advisories/ICSA-18-212-04"
+                    },
+                    {
+                      "url": "https://kb.pulsesecure.net/articles/Pulse_Security_Advisories/SA44601"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/10f0f3aefd51444d1198c65f44ffdf2d78ca3359423dbc1c168c9731@%3Cdev.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/17ff53f7999e74fbe3cc0ceb4e1c3b00b180b7c5afec8e978837bc49@%3Cuser.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/519eb0fd45642dcecd9ff74cb3e71c20a4753f7d82e2f07864b5108f@%3Cdev.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/52bafac05ad174000ea465fe275fd3cc7bd5c25535a7631c0bc9bfb2@%3Cuser.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/54df3aeb4239b64b50b356f0ca6f986e3c4ca5b84c515dce077c7854@%3Cuser.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/b0656d359c7d40ec9f39c8cc61bca66802ef9a2a12ee199f5b0c1442@%3Cdev.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ba79cf1658741e9f146e4c59b50aee56656ea95d841d358d006c18b6@%3Ccommits.roller.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/f9bc3e55f4e28d1dcd1a69aae6d53e609a758e34d2869b4d798e13cc@%3Cissues.drill.apache.org%3E"
+                    },
+                    {
+                      "url": "https://seclists.org/bugtraq/2019/May/18"
+                    },
+                    {
+                      "url": "https://security.netapp.com/advisory/ntap-20210108-0004/"
+                    },
+                    {
+                      "url": "https://snyk.io/vuln/npm:jquery:20150627"
+                    },
+                    {
+                      "url": "https://sw.aveva.com/hubfs/assets-2018/pdf/security-bulletin/SecurityBulletin_LFSec126.pdf"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuapr2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/technetwork/security-advisory/cpuapr2019-5072813.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/technetwork/security-advisory/cpujan2019-5072801.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/technetwork/security-advisory/cpujul2019-5072835.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/technetwork/security-advisory/cpuoct2019-5072832.html"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2019-08"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2020-03/msg00041.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/152787/dotCMS-5.1.1-Vulnerable-Dependencies.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/153237/RetireJS-CORS-Issue-Script-Execution.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/156743/OctoberCMS-Insecure-Dependencies.html"
+                    },
+                    {
+                      "url": "http://seclists.org/fulldisclosure/2019/May/10"
+                    },
+                    {
+                      "url": "http://seclists.org/fulldisclosure/2019/May/11"
+                    },
+                    {
+                      "url": "http://seclists.org/fulldisclosure/2019/May/13"
+                    },
+                    {
+                      "url": "http://www.oracle.com/technetwork/security-advisory/cpuoct2018-4428296.html"
+                    },
+                    {
+                      "url": "https://security.snyk.io/vuln/SNYK-DOTNET-JQUERY-450227"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/issues/2432#issuecomment-403761229"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#420"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/blob/v4.2.0/vendor/assets/javascripts/jquery3.js#L9377"
+                    },
+                    {
+                      "url": "https://web.archive.org/web/20200227030101/http://www.securityfocus.com/bid/105658"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/releases/tag/v4.2.0"
+                    },
+                    {
+                      "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2015-9251.yml"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-rmxg-73gg-4p98"
+                    }
+                  ],
+                  "published_at": "2018-01-22T13:32:06Z",
+                  "updated_at": "2023-09-25T23:28:12Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "nuget",
+                        "name": "jQuery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 1.12.2",
+                      "first_patched_version": {
+                        "identifier": "1.12.2"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "nuget",
+                        "name": "jQuery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.12.3, < 3.0.0",
+                      "first_patched_version": {
+                        "identifier": "3.0.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 1.12.2",
+                      "first_patched_version": {
+                        "identifier": "1.12.2"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.12.3, < 3.0.0",
+                      "first_patched_version": {
+                        "identifier": "3.0.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "rubygems",
+                        "name": "jquery-rails"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 4.2.0",
+                      "first_patched_version": {
+                        "identifier": "4.2.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "maven",
+                        "name": "org.webjars.npm:jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 1.12.2",
+                      "first_patched_version": {
+                        "identifier": "1.12.2"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "maven",
+                        "name": "org.webjars.npm:jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.12.3, < 3.0.0",
+                      "first_patched_version": {
+                        "identifier": "3.0.0"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                      "score": 6.1
+                    },
+                    "cvss_v4": {
+                      "vector_string": null,
+                      "score": 0
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.0/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:L/A:N",
+                    "score": 6.1
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-79",
+                      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "severity": "medium",
+                  "vulnerable_version_range": ">= 1.12.3, < 3.0.0",
+                  "first_patched_version": {
+                    "identifier": "3.0.0"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/3",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/3",
+                "created_at": "2024-08-12T09:35:29Z",
+                "updated_at": "2024-08-12T09:35:29Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              },
+              {
+                "number": 2,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-gxr4-xjj5-5px2",
+                  "cve_id": "CVE-2020-11022",
+                  "summary": "Potential XSS vulnerability in jQuery",
+                  "description": "### Impact\nPassing HTML from untrusted sources - even after sanitizing it - to one of jQuery's DOM manipulation methods (i.e. `.html()`, `.append()`, and others) may execute untrusted code.\n\n### Patches\nThis problem is patched in jQuery 3.5.0.\n\n### Workarounds\nTo workaround the issue without upgrading, adding the following to your code:\n\n```js\njQuery.htmlPrefilter = function( html ) {\n\treturn html;\n};\n```\n\nYou need to use at least jQuery 1.12/2.2 or newer to be able to apply this workaround.\n\n### References\nhttps://blog.jquery.com/2020/04/10/jquery-3-5-0-released/\nhttps://jquery.com/upgrade-guide/3.5/\n\n### For more information\nIf you have any questions or comments about this advisory, search for a relevant issue in [the jQuery repo](https://github.com/jquery/jquery/issues). If you don't find an answer, open a new issue.",
+                  "severity": "medium",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-gxr4-xjj5-5px2",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2020-11022",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://github.com/jquery/jquery/security/advisories/GHSA-gxr4-xjj5-5px2"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/commit/1d61fd9407e6fbe82fe55cb0b938307aa0791f77"
+                    },
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-11022"
+                    },
+                    {
+                      "url": "https://www.drupal.org/sa-core-2020-002"
+                    },
+                    {
+                      "url": "https://www.debian.org/security/2020/dsa-4693"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00067.html"
+                    },
+                    {
+                      "url": "https://security.gentoo.org/glsa/202007-03"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00085.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rdf44341677cf7eec7e9aa96dcf3f37ed709544863d619cca8c36f133@%3Ccommits.airflow.apache.org%3E"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-gxr4-xjj5-5px2"
+                    },
+                    {
+                      "url": "https://www.npmjs.com/advisories/1518"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r706cfbc098420f7113968cc377247ec3d1439bce42e679c11c609e2d@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rbb448222ba62c430e21e13f940be4cb5cfc373cd3bce56b48c0ffa67@%3Cdev.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2020-11/msg00039.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r49ce4243b4738dd763caeb27fa8ad6afb426ae3e8c011ff00b8b1f48@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2020-10"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2020-11"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2021.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r564585d97bc069137e64f521e68ba490c7c9c5b342df5d73c49a0760@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r8f70b0f65d6bedf316ecd899371fd89e65333bc988f6326d2956735c@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2021-02"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2021/03/msg00033.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/162159/jQuery-1.2-Cross-Site-Scripting.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rede9cfaa756e050a3d83045008f84a62802fc68c17f2b4eabeaae5e4@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ree3bd8ddb23df5fa4e372d11c226830ea3650056b1059f3965b3fce2@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r54565a8f025c7c4f305355fdfd75b68eca442eebdb5f31c2e7d977ae@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/re4ae96fa5c1a2fe71ccbb7b7ac1538bd0cb677be270a2bf6e2f8d108@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2021-10"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuApr2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com//security-alerts/cpujul2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r0483ba0072783c2e1bfea613984bfb3c86e73ba8879d780dc1cc7d36@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/releases/tag/3.5.0"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujul2022.html"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2023/08/msg00040.html"
+                    },
+                    {
+                      "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2020-11022.yml"
+                    },
+                    {
+                      "url": "https://github.com/maximebf/php-debugbar/issues/447"
+                    },
+                    {
+                      "url": "https://github.com/maximebf/php-debugbar/commit/847216e60544258c881f2733d699bbcfeefac0fc"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SFP4UK4EGP4AFH2MWYJ5A5Z4I7XVFQ6B"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VOE7P7APPRQKD4FGNHBKJPDY6FFCOH3W"
+                    },
+                    {
+                      "url": "https://security.netapp.com/advisory/ntap-20200511-0006"
+                    },
+                    {
+                      "url": "https://blog.jquery.com/2020/04/10/jquery-3-5-0-released"
+                    },
+                    {
+                      "url": "https://jquery.com/upgrade-guide/3.5"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVKYXLWCLZBV2N7M46KYK4LVA5OXWPBY"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QPN2L2XVQGUA2V5HNQJWHK3APSK3VN7K"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SAPQVX3XDNPGFT26QAQ6AJIXZZBZ4CD4"
+                    }
+                  ],
+                  "published_at": "2020-04-29T22:18:55Z",
+                  "updated_at": "2024-11-05T20:19:48Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.2.0, < 3.5.0",
+                      "first_patched_version": {
+                        "identifier": "3.5.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "nuget",
+                        "name": "jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.2.0, < 3.5.0",
+                      "first_patched_version": {
+                        "identifier": "3.5.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "maven",
+                        "name": "org.webjars.npm:jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.2.0, < 3.5.0",
+                      "first_patched_version": {
+                        "identifier": "3.5.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "rubygems",
+                        "name": "jquery-rails"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 4.4.0",
+                      "first_patched_version": {
+                        "identifier": "4.4.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "composer",
+                        "name": "maximebf/debugbar"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 1.19.0",
+                      "first_patched_version": {
+                        "identifier": "1.19.0"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:L/A:N",
+                      "score": 6.9
+                    },
+                    "cvss_v4": {
+                      "vector_string": null,
+                      "score": 0
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:L/A:N",
+                    "score": 6.9
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-79",
+                      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "severity": "medium",
+                  "vulnerable_version_range": ">= 1.2.0, < 3.5.0",
+                  "first_patched_version": {
+                    "identifier": "3.5.0"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/2",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/2",
+                "created_at": "2024-08-12T09:35:29Z",
+                "updated_at": "2024-08-12T09:35:29Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              },
+              {
+                "number": 1,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-jpcq-cgw6-v4j6",
+                  "cve_id": "CVE-2020-11023",
+                  "summary": "Potential XSS vulnerability in jQuery",
+                  "description": "### Impact\nPassing HTML containing `<option>` elements from untrusted sources - even after sanitizing them - to one of jQuery's DOM manipulation methods (i.e. `.html()`, `.append()`, and others) may execute untrusted code.\n\n### Patches\nThis problem is patched in jQuery 3.5.0.\n\n### Workarounds\nTo workaround this issue without upgrading, use [DOMPurify](https://github.com/cure53/DOMPurify) with its `SAFE_FOR_JQUERY` option to sanitize the HTML string before passing it to a jQuery method.\n\n### References\nhttps://blog.jquery.com/2020/04/10/jquery-3-5-0-released/\n\n### For more information\nIf you have any questions or comments about this advisory, search for a relevant issue in [the jQuery repo](https://github.com/jquery/jquery/issues). If you don't find an answer, open a new issue.",
+                  "severity": "medium",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-jpcq-cgw6-v4j6",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2020-11023",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://github.com/jquery/jquery/security/advisories/GHSA-jpcq-cgw6-v4j6"
+                    },
+                    {
+                      "url": "https://blog.jquery.com/2020/04/10/jquery-3-5-0-released"
+                    },
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2020-11023"
+                    },
+                    {
+                      "url": "https://www.drupal.org/sa-core-2020-002"
+                    },
+                    {
+                      "url": "https://www.debian.org/security/2020/dsa-4693"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujul2020.html"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00067.html"
+                    },
+                    {
+                      "url": "https://security.gentoo.org/glsa/202007-03"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2020-07/msg00085.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r0593393ca1e97b1e7e098fe69d414d6bd0a467148e9138d07e86ebbb@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r094f435595582f6b5b24b66fedf80543aa8b1d57a3688fbcc21f06ec@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r1fed19c860a0d470f2a3eded12795772c8651ff583ef951ddac4918c@%3Cgitbox.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r4aadb98086ca72ed75391f54167522d91489a0d0ae25b12baa8fc7c5@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r6c4df3b33e625a44471009a172dabe6865faec8d8f21cac2303463b1@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r6e97b37963926f6059ecc1e417721608723a807a76af41d4e9dbed49@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r9c5fda81e4bca8daee305b4c03283dddb383ab8428a151d4cb0b3b15@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ra32c7103ded9041c7c1cb8c12c8d125a6b2f3f3270e2937ef8417fac@%3Cgitbox.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ra374bb0299b4aa3e04edde01ebc03ed6f90cf614dad40dd428ce8f72@%3Cgitbox.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ra3c9219fcb0b289e18e9ec5a5ebeaa5c17d6b79a201667675af6721c@%3Cgitbox.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ra406b3adfcffcb5ce8707013bdb7c35e3ffc2776a8a99022f15274c6@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rab82dd040f302018c85bd07d33f5604113573514895ada523c3401d9@%3Ccommits.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/radcb2aa874a79647789f3563fcbbceaf1045a029ee8806b59812a8ea@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rb25c3bc7418ae75cba07988dafe1b6912f76a9dd7d94757878320d61@%3Cgitbox.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rb69b7d8217c1a6a2100247a5d06ce610836b31e3f5d73fc113ded8e7@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rd38b4185a797b324c8dd940d9213cf99fcdc2dbf1fc5a63ba7dee8c9@%3Cissues.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rda99599896c3667f2cc9e9d34c7b6ef5d2bbed1f4801e1d75a2b0679@%3Ccommits.nifi.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rf1ba79e564fe7efc56aef7c986106f1cf67a3427d08e997e088e7a93@%3Cgitbox.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rf661a90a15da8da5922ba6127b3f5f8194d4ebec8855d60a0dd13248@%3Cdev.hive.apache.org%3E"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuoct2020.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r706cfbc098420f7113968cc377247ec3d1439bce42e679c11c609e2d@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rbb448222ba62c430e21e13f940be4cb5cfc373cd3bce56b48c0ffa67@%3Cdev.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "http://lists.opensuse.org/opensuse-security-announce/2020-11/msg00039.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r49ce4243b4738dd763caeb27fa8ad6afb426ae3e8c011ff00b8b1f48@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r07ab379471fb15644bf7a92e4a98cbc7df3cf4e736abae0cc7625fe6@%3Cdev.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r2c85121a47442036c7f8353a3724aa04f8ecdfda1819d311ba4f5330@%3Cdev.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r3702ede0ff83a29ba3eb418f6f11c473d6e3736baba981a8dbd9c9ef@%3Cdev.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r4dba67be3239b34861f1b9cfdf9dfb3a90272585dcce374112ed6e16@%3Cdev.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r55f5e066cc7301e3630ce90bbbf8d28c82212ae1f2d4871012141494@%3Cdev.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r9006ad2abf81d02a0ef2126bab5177987e59095b7194a487c4ea247c@%3Ccommits.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r9e0bd31b7da9e7403478d22652b8760c946861f8ebd7bd750844898e@%3Cdev.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rf0f8939596081d84be1ae6a91d6248b96a02d8388898c372ac807817@%3Cdev.felix.apache.org%3E"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2021.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r564585d97bc069137e64f521e68ba490c7c9c5b342df5d73c49a0760@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r8f70b0f65d6bedf316ecd899371fd89e65333bc988f6326d2956735c@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2021-02"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2021/03/msg00033.html"
+                    },
+                    {
+                      "url": "http://packetstormsecurity.com/files/162160/jQuery-1.0.3-Cross-Site-Scripting.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/rede9cfaa756e050a3d83045008f84a62802fc68c17f2b4eabeaae5e4@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/ree3bd8ddb23df5fa4e372d11c226830ea3650056b1059f3965b3fce2@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r54565a8f025c7c4f305355fdfd75b68eca442eebdb5f31c2e7d977ae@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/re4ae96fa5c1a2fe71ccbb7b7ac1538bd0cb677be270a2bf6e2f8d108@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://www.tenable.com/security/tns-2021-10"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuApr2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com//security-alerts/cpujul2021.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuoct2021.html"
+                    },
+                    {
+                      "url": "https://lists.apache.org/thread.html/r0483ba0072783c2e1bfea613984bfb3c86e73ba8879d780dc1cc7d36@%3Cissues.flink.apache.org%3E"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/releases/tag/3.5.0"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujan2022.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpuapr2022.html"
+                    },
+                    {
+                      "url": "https://www.oracle.com/security-alerts/cpujul2022.html"
+                    },
+                    {
+                      "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2020-11023.yml"
+                    },
+                    {
+                      "url": "https://security.snyk.io/vuln/SNYK-DOTNET-JQUERY-565440"
+                    },
+                    {
+                      "url": "https://lists.debian.org/debian-lts-announce/2023/08/msg00040.html"
+                    },
+                    {
+                      "url": "https://github.com/jquery/jquery/commit/1d61fd9407e6fbe82fe55cb0b938307aa0791f77"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SFP4UK4EGP4AFH2MWYJ5A5Z4I7XVFQ6B"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/SAPQVX3XDNPGFT26QAQ6AJIXZZBZ4CD4"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/QPN2L2XVQGUA2V5HNQJWHK3APSK3VN7K"
+                    },
+                    {
+                      "url": "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/AVKYXLWCLZBV2N7M46KYK4LVA5OXWPBY"
+                    },
+                    {
+                      "url": "https://snyk.io/vuln/SNYK-JS-JQUERY-565129"
+                    },
+                    {
+                      "url": "https://security.netapp.com/advisory/ntap-20230725-0003"
+                    },
+                    {
+                      "url": "https://security.netapp.com/advisory/ntap-20200511-0006"
+                    },
+                    {
+                      "url": "https://jquery.com/upgrade-guide/3.5"
+                    },
+                    {
+                      "url": "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/jquery-rails/CVE-2020-23064.yml"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/blob/v4.4.0/vendor/assets/javascripts/jquery3.js#L6162"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/blob/v4.3.5/vendor/assets/javascripts/jquery3.js#L5979"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#440"
+                    },
+                    {
+                      "url": "https://github.com/rails/jquery-rails/blob/master/CHANGELOG.md#410"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-jpcq-cgw6-v4j6"
+                    }
+                  ],
+                  "published_at": "2020-04-29T22:19:14Z",
+                  "updated_at": "2024-05-15T19:48:02Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.0.3, < 3.5.0",
+                      "first_patched_version": {
+                        "identifier": "3.5.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "rubygems",
+                        "name": "jquery-rails"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": "< 4.4.0",
+                      "first_patched_version": {
+                        "identifier": "4.4.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "nuget",
+                        "name": "jQuery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.0.3, < 3.5.0",
+                      "first_patched_version": {
+                        "identifier": "3.5.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "maven",
+                        "name": "org.webjars.npm:jquery"
+                      },
+                      "severity": "medium",
+                      "vulnerable_version_range": ">= 1.0.3, < 3.5.0",
+                      "first_patched_version": {
+                        "identifier": "3.5.0"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:L/A:N",
+                      "score": 6.9
+                    },
+                    "cvss_v4": {
+                      "vector_string": null,
+                      "score": 0
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:C/C:H/I:L/A:N",
+                    "score": 6.9
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-79",
+                      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "jquery"
+                  },
+                  "severity": "medium",
+                  "vulnerable_version_range": ">= 1.0.3, < 3.5.0",
+                  "first_patched_version": {
+                    "identifier": "3.5.0"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/1",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/1",
+                "created_at": "2024-08-12T09:35:29Z",
+                "updated_at": "2024-08-12T09:35:29Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              },
+              {
+                "number": 8,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-jj78-5fmv-mv28",
+                  "cve_id": "CVE-2024-9266",
+                  "summary": "Express Open Redirect vulnerability",
+                  "description": "URL Redirection to Untrusted Site ('Open Redirect') vulnerability in Express. This vulnerability affects the use of the Express Response object. This issue impacts Express: from 3.4.5 before 4.0.0-rc1.",
+                  "severity": "low",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-jj78-5fmv-mv28",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2024-9266",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-9266"
+                    },
+                    {
+                      "url": "https://www.herodevs.com/vulnerability-directory/cve-2024-9266"
+                    },
+                    {
+                      "url": "https://github.com/expressjs/express/compare/3.4.4...3.4.5"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-jj78-5fmv-mv28"
+                    }
+                  ],
+                  "published_at": "2024-10-03T21:31:05Z",
+                  "updated_at": "2024-10-09T23:46:56Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "express"
+                      },
+                      "severity": "low",
+                      "vulnerable_version_range": ">= 3.4.5, < 4.0.0-rc1",
+                      "first_patched_version": {
+                        "identifier": "4.0.0-rc1"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+                      "score": 4.7
+                    },
+                    "cvss_v4": {
+                      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:N/SA:N/E:P",
+                      "score": 2.1
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:C/C:L/I:N/A:N",
+                    "score": 4.7
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-601",
+                      "name": "URL Redirection to Untrusted Site ('Open Redirect')"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "severity": "low",
+                  "vulnerable_version_range": ">= 3.4.5, < 4.0.0-rc1",
+                  "first_patched_version": {
+                    "identifier": "4.0.0-rc1"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/8",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/8",
+                "created_at": "2024-10-09T23:48:34Z",
+                "updated_at": "2024-10-09T23:48:34Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              },
+              {
+                "number": 6,
+                "state": "open",
+                "dependency": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "manifest_path": "WebGoat/Resources/client-scripts/package.json",
+                  "scope": "runtime"
+                },
+                "security_advisory": {
+                  "ghsa_id": "GHSA-qw6h-vgh9-j6wx",
+                  "cve_id": "CVE-2024-43796",
+                  "summary": "express vulnerable to XSS via response.redirect()",
+                  "description": "### Impact\n\nIn express <4.20.0, passing untrusted user input - even after sanitizing it - to `response.redirect()` may execute untrusted code\n\n### Patches\n\nthis issue is patched in express 4.20.0\n\n### Workarounds\n\nusers are encouraged to upgrade to the patched version of express, but otherwise can workaround this issue by making sure any untrusted inputs are safe, ideally by validating them against an explicit allowlist\n\n### Details\n\nsuccessful exploitation of this vector requires the following:\n\n1. The attacker MUST control the input to response.redirect()\n1. express MUST NOT redirect before the template appears\n1. the browser MUST NOT complete redirection before:\n1. the user MUST click on the link in the template\n",
+                  "severity": "low",
+                  "identifiers": [
+                    {
+                      "value": "GHSA-qw6h-vgh9-j6wx",
+                      "type": "GHSA"
+                    },
+                    {
+                      "value": "CVE-2024-43796",
+                      "type": "CVE"
+                    }
+                  ],
+                  "references": [
+                    {
+                      "url": "https://github.com/expressjs/express/security/advisories/GHSA-qw6h-vgh9-j6wx"
+                    },
+                    {
+                      "url": "https://nvd.nist.gov/vuln/detail/CVE-2024-43796"
+                    },
+                    {
+                      "url": "https://github.com/expressjs/express/commit/54271f69b511fea198471e6ff3400ab805d6b553"
+                    },
+                    {
+                      "url": "https://github.com/advisories/GHSA-qw6h-vgh9-j6wx"
+                    }
+                  ],
+                  "published_at": "2024-09-10T19:41:04Z",
+                  "updated_at": "2024-11-18T16:27:12Z",
+                  "withdrawn_at": null,
+                  "vulnerabilities": [
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "express"
+                      },
+                      "severity": "low",
+                      "vulnerable_version_range": "< 4.20.0",
+                      "first_patched_version": {
+                        "identifier": "4.20.0"
+                      }
+                    },
+                    {
+                      "package": {
+                        "ecosystem": "npm",
+                        "name": "express"
+                      },
+                      "severity": "low",
+                      "vulnerable_version_range": ">= 5.0.0-alpha.1, < 5.0.0",
+                      "first_patched_version": {
+                        "identifier": "5.0.0"
+                      }
+                    }
+                  ],
+                  "cvss_severities": {
+                    "cvss_v3": {
+                      "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L",
+                      "score": 5
+                    },
+                    "cvss_v4": {
+                      "vector_string": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:P/VC:N/VI:N/VA:N/SC:L/SI:L/SA:L",
+                      "score": 2.3
+                    }
+                  },
+                  "cvss": {
+                    "vector_string": "CVSS:3.1/AV:N/AC:H/PR:N/UI:R/S:U/C:L/I:L/A:L",
+                    "score": 5
+                  },
+                  "cwes": [
+                    {
+                      "cwe_id": "CWE-79",
+                      "name": "Improper Neutralization of Input During Web Page Generation ('Cross-site Scripting')"
+                    }
+                  ]
+                },
+                "security_vulnerability": {
+                  "package": {
+                    "ecosystem": "npm",
+                    "name": "express"
+                  },
+                  "severity": "low",
+                  "vulnerable_version_range": "< 4.20.0",
+                  "first_patched_version": {
+                    "identifier": "4.20.0"
+                  }
+                },
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/dependabot/alerts/6",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/dependabot/6",
+                "created_at": "2024-09-10T20:01:47Z",
+                "updated_at": "2024-09-10T20:01:47Z",
+                "dismissed_at": null,
+                "dismissed_by": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "fixed_at": null,
+                "auto_dismissed_at": null
+              }
+            ],
+            "newOpenAlerts": [],
+            "mttr": {
+              "mttr": 0,
+              "count": 0
+            }
+          }
+        },
+        {
+          "prettyName": "Code Scanning",
+          "metrics": {
+            "fixedLastXDays": 0,
+            "openedLastXDays": 0,
+            "openVulnerabilities": 32,
+            "top10": [
+              {
+                "number": 29,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/29",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/29",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/web/missing-global-error-handler",
+                  "severity": "warning",
+                  "description": "Missing global error handler",
+                  "name": "cs/web/missing-global-error-handler",
+                  "tags": [
+                    "external/cwe/cwe-12",
+                    "external/cwe/cwe-248",
+                    "security"
+                  ],
+                  "full_description": "ASP.NET applications should not set the 'customError' mode to \"off\" without providing a global error handler, otherwise they may leak exception information.",
+                  "help": "# Missing global error handler\n`Web.config` files that set the `customErrors` mode to `Off` and do not provide an `Application_Error` method in the `global.asax.cs` file rely on the default error pages, which leak information such as stack traces.\n\n\n## Recommendation\nSet the `customErrors` to `On` to prevent the default error page from being displayed, or to `RemoteOnly` to only show the default error page when the application is accessed locally. Alternatively, provide an implementation of the `Application_Error` method in the `global.asax.cs` page.\n\n\n## Example\nThe following example shows a `Web.config` file in which the custom errors mode has been set to `Off`.\n\n\n```none\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n    <customErrors mode=\"Off\">\n      ...\n    </customErrors>\n  </system.web>\n</configuration>\n\n```\nThis can be fixed either by specifying a different mode, such as `On`, in the `Web.config` file:\n\n\n```none\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n    <customErrors mode=\"On\">\n      ...\n    </customErrors>\n  </system.web>\n</configuration>\n\n```\nor by defining an `Application_Error` method in the `global.asax.cs` file:\n\n\n```csharp\nusing System;\nusing System.Web;\n\nnamespace WebApp\n{\n    public class Global : HttpApplication\n    {\n        void Application_Error(object sender, EventArgs e)\n        {\n            // Handle errors here\n        }\n    }\n}\n\n```\n\n## References\n* Common Weakness Enumeration: [CWE-12](https://cwe.mitre.org/data/definitions/12.html).\n* Common Weakness Enumeration: [CWE-248](https://cwe.mitre.org/data/definitions/248.html).\n",
+                  "security_severity_level": "high"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "'customErrors' mode set to off in Web.config, and no 'Application_Error' handler specified in the global.asax file."
+                  },
+                  "location": {
+                    "path": "WebGoat/Web.config",
+                    "start_line": 53,
+                    "end_line": 53,
+                    "start_column": 5,
+                    "end_column": 33
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/29/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 20,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/20",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/20",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/web/debug-binary",
+                  "severity": "warning",
+                  "description": "Creating an ASP.NET debug binary may reveal sensitive information",
+                  "name": "cs/web/debug-binary",
+                  "tags": [
+                    "external/cwe/cwe-11",
+                    "external/cwe/cwe-532",
+                    "frameworks/asp.net",
+                    "maintainability",
+                    "security"
+                  ],
+                  "full_description": "ASP.NET projects should not produce debug binaries when deploying to production as debug builds provide additional information useful to a malicious attacker.",
+                  "help": "# Creating an ASP.NET debug binary may reveal sensitive information\nASP.NET applications that deploy a 'debug' build to production can reveal debugging information to end users. This debugging information can aid a malicious user in attacking the system. The use of the debugging flag may also impair performance, increasing execution time and memory usage.\n\n\n## Recommendation\nRemove the 'debug' flag from the `Web.config` file if this configuration is likely to be used in production.\n\n\n## Example\nThe following example shows the 'debug' flag set to true in a `Web.config` file for ASP.NET:\n\n\n```none\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n    <compilation\n      defaultLanguage=\"c#\"\n      debug=\"true\"\n    />\n   ...\n  </system.web>\n</configuration>\n```\nThis will produce a 'debug' build that may be exploited by an end user.\n\nTo fix this problem, the 'debug' flag should be set to `false`, or removed completely:\n\n\n```none\n<?xml version=\"1.0\" encoding=\"utf-8\" ?>\n<configuration>\n  <system.web>\n    <compilation\n      defaultLanguage=\"c#\"\n    />\n   ...\n  </system.web>\n</configuration>\n```\n\n## References\n* MSDN: [Why debug=false in ASP.NET applications in production environment](https://web.archive.org/web/20190919105353/https://blogs.msdn.microsoft.com/prashant_upadhyay/2011/07/14/why-debugfalse-in-asp-net-applications-in-production-environment/).\n* MSDN: [How to: Enable Debugging for ASP.NET Applications](https://msdn.microsoft.com/en-us/library/e8z01xdh.aspx).\n* Common Weakness Enumeration: [CWE-11](https://cwe.mitre.org/data/definitions/11.html).\n* Common Weakness Enumeration: [CWE-532](https://cwe.mitre.org/data/definitions/532.html).\n",
+                  "security_severity_level": "high"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "The 'debug' flag is set for an ASP.NET configuration file."
+                  },
+                  "location": {
+                    "path": "WebGoat/Web.config",
+                    "start_line": 46,
+                    "end_line": 46,
+                    "start_column": 5,
+                    "end_column": 53
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/20/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 1,
+                "created_at": "2024-06-19T17:33:53Z",
+                "updated_at": "2024-06-19T17:33:55Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/1",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/1",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "js/insecure-randomness",
+                  "severity": "warning",
+                  "description": "Insecure randomness",
+                  "name": "js/insecure-randomness",
+                  "tags": [
+                    "external/cwe/cwe-338",
+                    "security"
+                  ],
+                  "full_description": "Using a cryptographically weak pseudo-random number generator to generate a security-sensitive value may allow an attacker to predict what value will be generated.",
+                  "help": "# Insecure randomness\nUsing a cryptographically weak pseudo-random number generator to generate a security-sensitive value, such as a password, makes it easier for an attacker to predict the value.\n\nPseudo-random number generators generate a sequence of numbers that only approximates the properties of random numbers. The sequence is not truly random because it is completely determined by a relatively small set of initial values, the seed. If the random number generator is cryptographically weak, then this sequence may be easily predictable through outside observations.\n\n\n## Recommendation\nUse a cryptographically secure pseudo-random number generator if the output is to be used in a security-sensitive context. As a rule of thumb, a value should be considered \"security-sensitive\" if predicting it would allow the attacker to perform an action that they would otherwise be unable to perform. For example, if an attacker could predict the random password generated for a new user, they would be able to log in as that new user.\n\nFor JavaScript on the NodeJS platform, `crypto.getRandomBytes` provides a cryptographically secure pseudo-random byte generator. Note that the conversion from bytes to numbers can introduce bias that breaks the security.\n\nFor JavaScript in the browser, `crypto.getRandomValues` provides a cryptographically secure pseudo-random number generator.\n\n\n## Example\nThe following examples show different ways of generating a password.\n\nIn the first case, we generate a fresh password by appending a random integer to the end of a static string. The random number generator used (`Math.random`) is not cryptographically secure, so it may be possible for an attacker to predict the generated password.\n\n\n```javascript\nfunction insecurePassword() {\n    // BAD: the random suffix is not cryptographically secure\n    var suffix = Math.random();\n    var password = \"myPassword\" + suffix;\n    return password;\n}\n\n```\nIn the second example, a cryptographically secure random number generator is used for the same purpose. In this case, it is much harder to predict the generated integers.\n\n\n```javascript\nfunction securePassword() {\n    // GOOD: the random suffix is cryptographically secure\n    var suffix = window.crypto.getRandomValues(new Uint32Array(1))[0];\n    var password = \"myPassword\" + suffix;\n    \n    // GOOD: if a random value between 0 and 1 is desired\n    var secret = window.crypto.getRandomValues(new Uint32Array(1))[0] * Math.pow(2,-32);\n}\n\n```\n\n## References\n* Wikipedia: [Pseudo-random number generator](http://en.wikipedia.org/wiki/Pseudorandom_number_generator).\n* Mozilla Developer Network: [Crypto: getRandomValues()](https://developer.mozilla.org/en-US/docs/Web/API/Crypto/getRandomValues).\n* NodeJS: [crypto.randomBytes](https://nodejs.org/api/crypto.html#crypto_crypto_randombytes_size_callback)\n* Common Weakness Enumeration: [CWE-338](https://cwe.mitre.org/data/definitions/338.html).\n",
+                  "security_severity_level": "high"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.19.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"none\",\"language\":\"javascript-typescript\"}",
+                  "category": "/language:javascript-typescript",
+                  "state": "open",
+                  "commit_sha": "ad11a46dfab47bc4a960715fc6cf108d501e5c0d",
+                  "message": {
+                    "text": "This uses a cryptographically insecure random number generated at Math.random() in a security context."
+                  },
+                  "location": {
+                    "path": "WebGoat/Resources/client-scripts/jquery.autocomplete.js",
+                    "start_line": 66,
+                    "end_line": 66,
+                    "start_column": 13,
+                    "end_column": 60
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/1/instances",
+                "commitDate": "2024-08-12T09:35:27Z"
+              },
+              {
+                "number": 32,
+                "created_at": "2024-07-16T23:28:46Z",
+                "updated_at": "2024-07-16T23:28:47Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/32",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/32",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/web/xss",
+                  "severity": "error",
+                  "description": "Cross-site scripting",
+                  "name": "cs/web/xss",
+                  "tags": [
+                    "external/cwe/cwe-079",
+                    "external/cwe/cwe-116",
+                    "security"
+                  ],
+                  "full_description": "Writing user input directly to a web page allows for a cross-site scripting vulnerability.",
+                  "help": "# Cross-site scripting\nDirectly writing user input (for example, an HTTP request parameter) to a webpage, without properly sanitizing the input first, allows for a cross-site scripting vulnerability.\n\n\n## Recommendation\nTo guard against cross-site scripting, consider using a library that provides suitable encoding functionality, such as the `System.Net.WebUtility` class, to sanitize the untrusted input before writing it to the page. For other possible solutions, see the references.\n\n\n## Example\nThe following example shows the page parameter being written directly to the server error page, leaving the website vulnerable to cross-site scripting.\n\n\n```csharp\nusing System;\nusing System.Web;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        ctx.Response.Write(\n            \"The page \\\"\" + ctx.Request.QueryString[\"page\"] + \"\\\" was not found.\");\n    }\n}\n\n```\nSanitizing the user-controlled data using the `WebUtility.HtmlEncode` method prevents the vulnerability:\n\n\n```csharp\nusing System;\nusing System.Web;\nusing System.Net;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        string page = WebUtility.HtmlEncode(ctx.Request.QueryString[\"page\"]);\n        ctx.Response.Write(\n            \"The page \\\"\" + page + \"\\\" was not found.\");\n    }\n}\n\n```\n\n## References\n* OWASP: [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).\n* Wikipedia: [Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting).\n* Common Weakness Enumeration: [CWE-79](https://cwe.mitre.org/data/definitions/79.html).\n* Common Weakness Enumeration: [CWE-116](https://cwe.mitre.org/data/definitions/116.html).\n",
+                  "security_severity_level": "medium"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "User-provided value flows to here and is written to HTML or JavaScript."
+                  },
+                  "location": {
+                    "path": "WebGoat/Content/HeaderInjection.aspx.cs",
+                    "start_line": 33,
+                    "end_line": 33,
+                    "start_column": 31,
+                    "end_column": 80
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/32/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 31,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/31",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/31",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/resource-injection",
+                  "severity": "error",
+                  "description": "Resource injection",
+                  "name": "cs/resource-injection",
+                  "tags": [
+                    "external/cwe/cwe-099",
+                    "security"
+                  ],
+                  "full_description": "Building a resource descriptor from untrusted user input is vulnerable to a malicious user providing an unintended resource.",
+                  "help": "# Resource injection\nIf a resource descriptor is built using string concatenation, and the components of the concatenation include user input, a user may be able to hijack the resource which is loaded.\n\n\n## Recommendation\nIf user input must be included in a resource descriptor, it should be escaped to avoid a malicious user providing special characters that change the meaning of the descriptor. If possible, use an existing library to either escape or construct the resource.\n\nFor data connections within sub namespaces of `System.Data`, a connection builder class is provided. For example, a connection string which is to be passed to `System.Data.SqlClient.SqlConnection` can be constructed safely using an instance of `System.Data.SqlClient.SqlConnectionStringBuilder`.\n\n\n## Example\nIn the following examples, the code accepts a user name from the user, which it uses to create a connection string for an SQL database.\n\nThe first example concatenates the unvalidated and unencoded user input directly into the connection string. A malicious user could provide special characters to change the meaning of the connection string, and connect to a completely different server.\n\nThe second example uses the `SqlConnectionStringBuilder` to construct the connection string and therefore prevents a malicious user modifying the meaning of the connection string.\n\n\n```csharp\nusing System.Data.SqlClient;\nusing System.Web;\n\npublic class ResourceInjectionHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        string userName = ctx.Request.QueryString[\"userName\"];\n\n        // BAD: Direct use of user input in a connection string passed to SqlConnection\n        string connectionString = \"server=(local);user id=\" + userName + \";password= pass;\";\n        SqlConnection sqlConnectionBad = new SqlConnection(connectionString);\n\n        // GOOD: Use SqlConnectionStringBuilder to safely include user input in a connection string\n        SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();\n        builder[\"Data Source\"] = \"(local)\";\n        builder[\"integrated Security\"] = true;\n        builder[\"user id\"] = userName;\n        SqlConnection sqlConnectionGood = new SqlConnection(builder.ConnectionString);\n    }\n}\n\n```\n\n## References\n* OWASP: [Resource Injection](https://www.owasp.org/index.php/Resource_Injection).\n* MSDN: [Building Connection Strings](https://msdn.microsoft.com/en-us/library/ms254947(v=vs.80).aspx).\n* MSDN: [Securing Connection Strings](https://msdn.microsoft.com/en-us/library/89211k9b(VS.80).aspx).\n* Common Weakness Enumeration: [CWE-99](https://cwe.mitre.org/data/definitions/99.html).\n",
+                  "security_severity_level": "critical"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "This resource descriptor depends on a user-provided value.\nThis resource descriptor depends on a user-provided value.\nThis resource descriptor depends on a user-provided value.\nThis resource descriptor depends on a user-provided value.\nThis resource descriptor depends on a user-provided value.\nThis resource descriptor depends on a user-provided value.\nThis resource descriptor depends on a user-provided value."
+                  },
+                  "location": {
+                    "path": "WebGoat/App_Code/DB/SqliteDbProvider.cs",
+                    "start_line": 37,
+                    "end_line": 37,
+                    "start_column": 69,
+                    "end_column": 86
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/31/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 30,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/30",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/30",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/regex-injection",
+                  "severity": "error",
+                  "description": "Regular expression injection",
+                  "name": "cs/regex-injection",
+                  "tags": [
+                    "external/cwe/cwe-400",
+                    "external/cwe/cwe-730",
+                    "security"
+                  ],
+                  "full_description": "User input should not be used in regular expressions without first being escaped, otherwise a malicious user may be able to provide a regex that could require exponential time on certain inputs.",
+                  "help": "# Regular expression injection\nConstructing a regular expression with unsanitized user input is dangerous as a malicious user may be able to modify the meaning of the expression. In particular, such a user may be able to provide a regular expression fragment that takes exponential time in the worst case, and use that to perform a Denial of Service attack.\n\n\n## Recommendation\nFor user input that is intended to be referenced as a string literal in a regular expression, use the `Regex.Escape` method to escape any special characters. If the regular expression is intended to be configurable by the user, then a timeout should be used to avoid Denial of Service attacks. For C\\# applications, a timeout can be provided to the `Regex` constructor. Alternatively, apply a global timeout by setting the `REGEX_DEFAULT_MATCH_TIMEOUT` application domain property, using the `AppDomain.SetData` method.\n\n\n## Example\nThe following example shows a HTTP request parameter that is used as a regular expression, and matched against another request parameter.\n\nIn the first case, the regular expression is used without a timeout, and the user-provided regex is not escaped. If a malicious user provides a regex that has exponential worst case performance, then this could lead to a Denial of Service.\n\nIn the second case, the user input is escaped using `Regex.Escape` before being included in the regular expression. This ensures that the user cannot insert characters which have a special meaning in regular expressions.\n\n\n```csharp\nusing System;\nusing System.Web;\nusing System.Text.RegularExpressions;\n\npublic class RegexInjectionHandler : IHttpHandler\n{\n\n    public void ProcessRequest(HttpContext ctx)\n    {\n        string name = ctx.Request.QueryString[\"name\"];\n        string userInput = ctx.Request.QueryString[\"userInput\"];\n\n        // BAD: Unsanitized user input is used to construct a regular expression\n        new Regex(\"^\" + name + \"=.*$\").Match(userInput);\n\n        // GOOD: User input is sanitized before constructing the regex\n        string safeName = Regex.Escape(name);\n        new Regex(\"^\" + safeName + \"=.*$\").Match(userInput);\n    }\n}\n\n```\n\n## References\n* OWASP: [Regular expression Denial of Service - ReDoS](https://www.owasp.org/index.php/Regular_expression_Denial_of_Service_-_ReDoS).\n* Wikipedia: [ReDoS](https://en.wikipedia.org/wiki/ReDoS).\n* Common Weakness Enumeration: [CWE-730](https://cwe.mitre.org/data/definitions/730.html).\n* Common Weakness Enumeration: [CWE-400](https://cwe.mitre.org/data/definitions/400.html).\n",
+                  "security_severity_level": "high"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "This regular expression is constructed from a user-provided value."
+                  },
+                  "location": {
+                    "path": "WebGoat/Content/RegexDoS.aspx.cs",
+                    "start_line": 23,
+                    "end_line": 23,
+                    "start_column": 44,
+                    "end_column": 52
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/30/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 28,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/28",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/28",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/web/xss",
+                  "severity": "error",
+                  "description": "Cross-site scripting",
+                  "name": "cs/web/xss",
+                  "tags": [
+                    "external/cwe/cwe-079",
+                    "external/cwe/cwe-116",
+                    "security"
+                  ],
+                  "full_description": "Writing user input directly to a web page allows for a cross-site scripting vulnerability.",
+                  "help": "# Cross-site scripting\nDirectly writing user input (for example, an HTTP request parameter) to a webpage, without properly sanitizing the input first, allows for a cross-site scripting vulnerability.\n\n\n## Recommendation\nTo guard against cross-site scripting, consider using a library that provides suitable encoding functionality, such as the `System.Net.WebUtility` class, to sanitize the untrusted input before writing it to the page. For other possible solutions, see the references.\n\n\n## Example\nThe following example shows the page parameter being written directly to the server error page, leaving the website vulnerable to cross-site scripting.\n\n\n```csharp\nusing System;\nusing System.Web;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        ctx.Response.Write(\n            \"The page \\\"\" + ctx.Request.QueryString[\"page\"] + \"\\\" was not found.\");\n    }\n}\n\n```\nSanitizing the user-controlled data using the `WebUtility.HtmlEncode` method prevents the vulnerability:\n\n\n```csharp\nusing System;\nusing System.Web;\nusing System.Net;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        string page = WebUtility.HtmlEncode(ctx.Request.QueryString[\"page\"]);\n        ctx.Response.Write(\n            \"The page \\\"\" + page + \"\\\" was not found.\");\n    }\n}\n\n```\n\n## References\n* OWASP: [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).\n* Wikipedia: [Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting).\n* Common Weakness Enumeration: [CWE-79](https://cwe.mitre.org/data/definitions/79.html).\n* Common Weakness Enumeration: [CWE-116](https://cwe.mitre.org/data/definitions/116.html).\n",
+                  "security_severity_level": "medium"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "User-provided value flows to here and is written to HTML or JavaScript."
+                  },
+                  "location": {
+                    "path": "WebGoat/WebGoatCoins/Autocomplete.ashx.cs",
+                    "start_line": 33,
+                    "end_line": 33,
+                    "start_column": 40,
+                    "end_column": 44
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/28/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 27,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/27",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/27",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/web/xss",
+                  "severity": "error",
+                  "description": "Cross-site scripting",
+                  "name": "cs/web/xss",
+                  "tags": [
+                    "external/cwe/cwe-079",
+                    "external/cwe/cwe-116",
+                    "security"
+                  ],
+                  "full_description": "Writing user input directly to a web page allows for a cross-site scripting vulnerability.",
+                  "help": "# Cross-site scripting\nDirectly writing user input (for example, an HTTP request parameter) to a webpage, without properly sanitizing the input first, allows for a cross-site scripting vulnerability.\n\n\n## Recommendation\nTo guard against cross-site scripting, consider using a library that provides suitable encoding functionality, such as the `System.Net.WebUtility` class, to sanitize the untrusted input before writing it to the page. For other possible solutions, see the references.\n\n\n## Example\nThe following example shows the page parameter being written directly to the server error page, leaving the website vulnerable to cross-site scripting.\n\n\n```csharp\nusing System;\nusing System.Web;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        ctx.Response.Write(\n            \"The page \\\"\" + ctx.Request.QueryString[\"page\"] + \"\\\" was not found.\");\n    }\n}\n\n```\nSanitizing the user-controlled data using the `WebUtility.HtmlEncode` method prevents the vulnerability:\n\n\n```csharp\nusing System;\nusing System.Web;\nusing System.Net;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        string page = WebUtility.HtmlEncode(ctx.Request.QueryString[\"page\"]);\n        ctx.Response.Write(\n            \"The page \\\"\" + page + \"\\\" was not found.\");\n    }\n}\n\n```\n\n## References\n* OWASP: [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).\n* Wikipedia: [Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting).\n* Common Weakness Enumeration: [CWE-79](https://cwe.mitre.org/data/definitions/79.html).\n* Common Weakness Enumeration: [CWE-116](https://cwe.mitre.org/data/definitions/116.html).\n",
+                  "security_severity_level": "medium"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "User-provided value flows to here and is written to HTML or JavaScript."
+                  },
+                  "location": {
+                    "path": "WebGoat/Content/VerbTampering.aspx.cs",
+                    "start_line": 15,
+                    "end_line": 15,
+                    "start_column": 32,
+                    "end_column": 47
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/27/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 26,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/26",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/26",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/web/xss",
+                  "severity": "error",
+                  "description": "Cross-site scripting",
+                  "name": "cs/web/xss",
+                  "tags": [
+                    "external/cwe/cwe-079",
+                    "external/cwe/cwe-116",
+                    "security"
+                  ],
+                  "full_description": "Writing user input directly to a web page allows for a cross-site scripting vulnerability.",
+                  "help": "# Cross-site scripting\nDirectly writing user input (for example, an HTTP request parameter) to a webpage, without properly sanitizing the input first, allows for a cross-site scripting vulnerability.\n\n\n## Recommendation\nTo guard against cross-site scripting, consider using a library that provides suitable encoding functionality, such as the `System.Net.WebUtility` class, to sanitize the untrusted input before writing it to the page. For other possible solutions, see the references.\n\n\n## Example\nThe following example shows the page parameter being written directly to the server error page, leaving the website vulnerable to cross-site scripting.\n\n\n```csharp\nusing System;\nusing System.Web;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        ctx.Response.Write(\n            \"The page \\\"\" + ctx.Request.QueryString[\"page\"] + \"\\\" was not found.\");\n    }\n}\n\n```\nSanitizing the user-controlled data using the `WebUtility.HtmlEncode` method prevents the vulnerability:\n\n\n```csharp\nusing System;\nusing System.Web;\nusing System.Net;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        string page = WebUtility.HtmlEncode(ctx.Request.QueryString[\"page\"]);\n        ctx.Response.Write(\n            \"The page \\\"\" + page + \"\\\" was not found.\");\n    }\n}\n\n```\n\n## References\n* OWASP: [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).\n* Wikipedia: [Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting).\n* Common Weakness Enumeration: [CWE-79](https://cwe.mitre.org/data/definitions/79.html).\n* Common Weakness Enumeration: [CWE-116](https://cwe.mitre.org/data/definitions/116.html).\n",
+                  "security_severity_level": "medium"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "User-provided value flows to here and is written to HTML or JavaScript."
+                  },
+                  "location": {
+                    "path": "WebGoat/Content/ReflectedXSS.aspx.cs",
+                    "start_line": 26,
+                    "end_line": 26,
+                    "start_column": 30,
+                    "end_column": 80
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/26/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              },
+              {
+                "number": 25,
+                "created_at": "2024-06-19T17:34:26Z",
+                "updated_at": "2024-06-19T17:34:27Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/25",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/code-scanning/25",
+                "state": "open",
+                "fixed_at": null,
+                "dismissed_by": null,
+                "dismissed_at": null,
+                "dismissed_reason": null,
+                "dismissed_comment": null,
+                "rule": {
+                  "id": "cs/web/xss",
+                  "severity": "error",
+                  "description": "Cross-site scripting",
+                  "name": "cs/web/xss",
+                  "tags": [
+                    "external/cwe/cwe-079",
+                    "external/cwe/cwe-116",
+                    "security"
+                  ],
+                  "full_description": "Writing user input directly to a web page allows for a cross-site scripting vulnerability.",
+                  "help": "# Cross-site scripting\nDirectly writing user input (for example, an HTTP request parameter) to a webpage, without properly sanitizing the input first, allows for a cross-site scripting vulnerability.\n\n\n## Recommendation\nTo guard against cross-site scripting, consider using a library that provides suitable encoding functionality, such as the `System.Net.WebUtility` class, to sanitize the untrusted input before writing it to the page. For other possible solutions, see the references.\n\n\n## Example\nThe following example shows the page parameter being written directly to the server error page, leaving the website vulnerable to cross-site scripting.\n\n\n```csharp\nusing System;\nusing System.Web;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        ctx.Response.Write(\n            \"The page \\\"\" + ctx.Request.QueryString[\"page\"] + \"\\\" was not found.\");\n    }\n}\n\n```\nSanitizing the user-controlled data using the `WebUtility.HtmlEncode` method prevents the vulnerability:\n\n\n```csharp\nusing System;\nusing System.Web;\nusing System.Net;\n\npublic class XSSHandler : IHttpHandler\n{\n    public void ProcessRequest(HttpContext ctx)\n    {\n        string page = WebUtility.HtmlEncode(ctx.Request.QueryString[\"page\"]);\n        ctx.Response.Write(\n            \"The page \\\"\" + page + \"\\\" was not found.\");\n    }\n}\n\n```\n\n## References\n* OWASP: [XSS (Cross Site Scripting) Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html).\n* Wikipedia: [Cross-site scripting](http://en.wikipedia.org/wiki/Cross-site_scripting).\n* Common Weakness Enumeration: [CWE-79](https://cwe.mitre.org/data/definitions/79.html).\n* Common Weakness Enumeration: [CWE-116](https://cwe.mitre.org/data/definitions/116.html).\n",
+                  "security_severity_level": "medium"
+                },
+                "tool": {
+                  "name": "CodeQL",
+                  "guid": null,
+                  "version": "2.18.1"
+                },
+                "most_recent_instance": {
+                  "ref": "refs/heads/main",
+                  "analysis_key": ".github/workflows/codeql.yml:analyze",
+                  "environment": "{\"build-mode\":\"autobuild\",\"language\":\"csharp\"}",
+                  "category": "/language:csharp",
+                  "state": "open",
+                  "commit_sha": "4595cacd70d192e49bf1b99e17886c60ade4a493",
+                  "message": {
+                    "text": "User-provided value flows to here and is written to HTML or JavaScript."
+                  },
+                  "location": {
+                    "path": "WebGoat/Content/PathManipulation.aspx.cs",
+                    "start_line": 43,
+                    "end_line": 43,
+                    "start_column": 42,
+                    "end_column": 71
+                  },
+                  "classifications": []
+                },
+                "instances_url": "https://api.github.com/repos/jcardoso13/demo-csharp/code-scanning/alerts/25/instances",
+                "commitDate": "2024-06-19T18:28:22Z"
+              }
+            ],
+            "newOpenAlerts": [],
+            "mttr": {
+              "mttr": 0,
+              "count": 0
+            },
+            "mttd": {
+              "mttd": -74473.4375
+            }
+          }
+        },
+        {
+          "prettyName": "Secret Scanning",
+          "metrics": {
+            "fixedLastXDays": 0,
+            "openedLastXDays": 0,
+            "openVulnerabilities": 1,
+            "top10": [
+              {
+                "number": 1,
+                "created_at": "2024-08-12T09:35:30Z",
+                "updated_at": "2024-08-12T09:35:30Z",
+                "url": "https://api.github.com/repos/jcardoso13/demo-csharp/secret-scanning/alerts/1",
+                "html_url": "https://github.com/jcardoso13/demo-csharp/security/secret-scanning/1",
+                "locations_url": "https://api.github.com/repos/jcardoso13/demo-csharp/secret-scanning/alerts/1/locations",
+                "state": "open",
+                "secret_type": "azure_storage_account_key",
+                "secret_type_display_name": "Azure Storage Account Access Key",
+                "secret": "MhrpiABnEc8sl05cNKKYrwFRUX4Fhc9TO35LxaGhBto3ypMc+W2wX4uvwl82mwgxJ4HVyyNz19BZ+AStKCo08w==",
+                "validity": "unknown",
+                "multi_repo": false,
+                "publicly_leaked": false,
+                "resolution": null,
+                "resolved_by": null,
+                "resolved_at": null,
+                "resolution_comment": null,
+                "push_protection_bypassed": false,
+                "push_protection_bypassed_by": null,
+                "push_protection_bypassed_at": null,
+                "push_protection_bypass_request_reviewer": null,
+                "push_protection_bypass_request_reviewer_comment": null,
+                "push_protection_bypass_request_comment": null,
+                "push_protection_bypass_request_html_url": null,
+                "commitsSha": [
+                  "d81d4468e80dbe029c3158d5db74f5ea6e01a5df",
+                  "0a8baa334ce15be02c34d41533beb70245a5a939"
+                ],
+                "commitDate": "2024-06-27T13:48:20Z"
+              }
+            ],
+            "newOpenAlerts": [],
+            "mttr": {
+              "mttr": 0,
+              "count": 0
+            },
+            "mttd": {
+              "mttd": 3959230
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

@@ -39,6 +39,8 @@ switch(split[2])
     break;
     case "xml": contenttype="application/xml";
     break;
+    case "csv": contenttype="text/csv";
+    break;
     default: contenttype="text/plain";
     break;
 }
@@ -58,6 +60,8 @@ switch(split[1])
     case "json": contenttype="application/json";
     break;
     case "xml": contenttype="application/xml";
+    break;
+    case "csv": contenttype="text/csv";
     break;
     default: contenttype="text/plain";
     break;
