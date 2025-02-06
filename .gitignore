@@ -13,3 +13,4 @@ tests/data/output.xml
 tests/data/output.csv
 tests/data/output.xlsx
 tables/*
+tests/data/ghas-report.json
