@@ -30,7 +30,7 @@ jobs:
 
   call-build-and-run:
     needs: read-files
-    uses: jcardoso13/LiquidConsole/.github/workflows/run.yml@main
+    uses: bdsoflow/gh-data-transform/.github/workflows/run.yml@main
     with:
       input-file: "tests/data/salesforce.json"
       liquid-string: "liquid/salesforceCloudLiquid.liquid"
