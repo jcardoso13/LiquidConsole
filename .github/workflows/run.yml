@@ -38,7 +38,7 @@ jobs:
 
     - name: Clone Git Repo
       env:
-        GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET  }}
       run: |
         git clone https://x-access-token:${GITHUB_TOKEN}@github.com/bdsoflow/gh-data-transform.git
         cd ./LiquidConsole/
