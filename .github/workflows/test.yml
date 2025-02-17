@@ -46,14 +46,14 @@ jobs:
         name: output-file
         path: ./output
   
-    - name: CSV export
-      uses: advanced-security/ghas-to-csv@v3
-      env:
-        GITHUB_PAT: ${{ secrets.TOKEN }}  # you need to set a PAT
-        SCOPE_NAME: jcardoso13/demo-csharp
-    - name: Upload CSV
-      uses: actions/upload-artifact@v4
-      with:
-        name: ghas-data
-        path: ${{ github.workspace }}/*.csv
-        if-no-files-found: error
+#    - name: CSV export
+#      uses: advanced-security/ghas-to-csv@v3
+#      env:
+#        GITHUB_PAT: ${{ secrets.TOKEN }}  # you need to set a PAT
+#        SCOPE_NAME: jcardoso13/demo-csharp
+#    - name: Upload CSV
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: ghas-data
+#        path: ${{ github.workspace }}/*.csv
+#        if-no-files-found: error
