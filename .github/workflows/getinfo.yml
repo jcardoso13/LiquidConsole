@@ -1,0 +1,39 @@
+name: Test LiquidConsole
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  get-data:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    
+    - name: Make API request to GitHub
+      run: |
+            curl -L \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            https://api.github.com/orgs/bdsoflow/code-scanning/alerts >> output.json
+
+    - name: Upload output.file as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: output-file
+        path: ./output.json
+#    - name: CSV export
+#      uses: advanced-security/ghas-to-csv@v3
+#      env:
+#        GITHUB_PAT: ${{ secrets.TOKEN }}  # you need to set a PAT
+#        SCOPE_NAME: jcardoso13/demo-csharp
+#    - name: Upload CSV
+#      uses: actions/upload-artifact@v4
+#      with:
+#        name: ghas-data
+#        path: ${{ github.workspace }}/*.csv
+#        if-no-files-found: error
