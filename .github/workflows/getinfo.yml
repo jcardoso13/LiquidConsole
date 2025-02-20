@@ -21,22 +21,22 @@ jobs:
             -H "Authorization: Bearer ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -L https://api.github.com/orgs/bdsoflow/repos >> output.json
-            echo '},' >> output.json
-            echo '{"code-scanning":' >> output.json
+            echo ',' >> output.json
+            echo '"code-scanning":' >> output.json
             curl \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -L https://api.github.com/orgs/bdsoflow/code-scanning/alerts >> output.json
-            echo '},' >> output.json
-            echo '{"dependabot":' >> output.json
+            echo ',' >> output.json
+            echo '"dependabot":' >> output.json
             curl  \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}" \
             -H "X-GitHub-Api-Version: 2022-11-28" \
             -L https://api.github.com/orgs/bdsoflow/dependabot/alerts >> output.json
-            echo '},' >> output.json
-            echo '{"secret-scanning":' >> output.json
+            echo ',' >> output.json
+            echo '"secret-scanning":' >> output.json
             curl \
             -H "Accept: application/vnd.github+json" \
             -H "Authorization: Bearer ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}" \
