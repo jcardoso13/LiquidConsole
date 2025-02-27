@@ -1,0 +1,111 @@
+{% comment %} {%- assign repo_list = content | create_hash -%}
+{%- for repo in content.repos -%}
+    {%- capture_json index -%}
+        {}
+    {%- endcapture_json -%}
+{%- endfor -%} {% endcomment %}
+{%- assign headers = "Repository,Repository ID,Tool,Alert Number,Severity,Created At,Updated At,Resolved At,Reopened At,Resolved Reason,Secret Bypassed,Secret Type,Secret Provider,Secret Validity,GHSA ID,Ecosystem,Package,Dependency Scope,CodeQL Rule,Third Party Tool Rule,Teams (truncated at 20 values),Repository Visibility,Repository Topics,Repository Archived,Custom Property: Language,Custom Property: MicroservicesLanguage,Custom Property: Type" -%}
+{{ headers | json }}
+{%- for repo in content.code_scanning -%}
+{%- assign Repository = repo.repository.full_name -%}
+{%- assign RepositoryID = repo.repository.id -%}
+{%- assign Tool = repo.tool.name -%}
+{%- assign AlertNumber = repo.number -%}
+{%- assign Severity = repo.rule.security_severity_level -%}
+{%- assign CreatedAt = repo.created_at -%}
+{%- assign UpdatedAt = repo.updated_at -%}
+{%- assign ResolvedAt = repo.dismissed_at -%}
+{%- assign ReopenedAt = null -%}
+{%- assign ResolvedReason = repo.dismissed_reason -%}
+{%- assign SecretBypass = null -%}
+{%- assign SecretType = null -%}
+{%- assign SecretProvider = null -%}
+{%- assign SecretValidity = null -%}
+{%- assign GHSAID = null -%}
+{%- assign Ecosystem = null -%}
+{%- assign Package = null -%}
+{%- assign DependencyScope = null -%}
+{%- assign CodeQLRule = repo.rule.name -%}
+{%- assign ThirdPartyToolRule = null -%}
+{%- assign Teams = null -%}
+{%- if repo.private == true -%}
+{%- assign RepositoryVisibility = "private" -%}
+{%- else -%}
+{%- assign RepositoryVisibility = "internal" -%}
+{%- endif -%}
+{%- assign RepositoryTopics = repo.repository.description -%}
+{%- assign RepositoryArchived = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyLanguage = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyMicroservicesLanguage = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyType = null -%} {%- comment -%}do later{%- endcomment -%}
+{{ Repository | json }},{{ RepositoryID | json }},{{ Tool | json }},{{ AlertNumber | json }},{{ Severity | json }},{{ CreatedAt | json }},{{ UpdatedAt | json }},{{ ResolvedAt | json }},{{ ReopenedAt | json }},{{ ResolvedReason | json }},{{ SecretBypass | json }},{{ SecretType | json }},{{ SecretProvider | json }},{{ SecretValidity | json }},{{ GHSAID | json }},{{ Ecosystem | json }},{{ Package | json }},{{ DependencyScope | json }},{{ CodeQLRule | json }},{{ ThirdPartyToolRule | json }},{{ Teams | json }},{{ RepositoryVisibility | json }},{{ RepositoryTopics | json }},{{ RepositoryArchived | json }},{{ CustomPropertyLanguage | json }},{{ CustomPropertyMicroservicesLanguage | json }},{{ CustomPropertyType | json }}
+{%- endfor -%}
+{%- for repo in content.dependabot -%}
+{%- assign Repository = repo.repository.full_name -%}
+{%- assign RepositoryID = repo.repository.id -%}
+{%- assign Tool = "Dependabot" -%}
+{%- assign AlertNumber = repo.number -%}
+{%- assign Severity = repo.security_vulnerability.severity -%}
+{%- assign CreatedAt = repo.created_at -%}
+{%- assign UpdatedAt = repo.updated_at -%}
+{%- assign ResolvedAt = repo.dismissed_at -%}
+{%- assign ReopenedAt = null -%}
+{%- assign ResolvedReason = repo.dismissed_reason -%}
+{%- assign SecretBypass = null -%}
+{%- assign SecretType = null -%}
+{%- assign SecretProvider = null -%}
+{%- assign SecretValidity = null -%}
+{%- assign GHSAID = repo.security_advisory.ghsa_id -%}
+{%- assign Ecosystem = repo.security_vulnerability.package.ecosystem -%}
+{%- assign Package = repo.security_vulnerability.package.name -%}
+{%- assign DependencyScope = repo.dependency.scope -%}
+{%- assign CodeQLRule = null -%}
+{%- assign ThirdPartyToolRule = null -%}
+{%- assign Teams = null -%}
+{%- if repo.private == true -%}
+{%- assign RepositoryVisibility = "private" -%}
+{%- else -%}
+{%- assign RepositoryVisibility = "internal" -%}
+{%- endif -%}
+{%- assign RepositoryTopics = repo.repository.description -%}
+{%- assign RepositoryArchived = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyLanguage = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyMicroservicesLanguage = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyType = null -%} {%- comment -%}do later{%- endcomment -%}
+{{ Repository | json }},{{ RepositoryID | json }},{{ Tool | json }},{{ AlertNumber | json }},{{ Severity | json }},{{ CreatedAt | json }},{{ UpdatedAt | json }},{{ ResolvedAt | json }},{{ ReopenedAt | json }},{{ ResolvedReason | json }},{{ SecretBypass | json }},{{ SecretType | json }},{{ SecretProvider | json }},{{ SecretValidity | json }},{{ GHSAID | json }},{{ Ecosystem | json }},{{ Package | json }},{{ DependencyScope | json }},{{ CodeQLRule | json }},{{ ThirdPartyToolRule | json }},{{ Teams | json }},{{ RepositoryVisibility | json }},{{ RepositoryTopics | json }},{{ RepositoryArchived | json }},{{ CustomPropertyLanguage | json }},{{ CustomPropertyMicroservicesLanguage | json }},{{ CustomPropertyType | json }}
+{%- endfor -%}
+{%- for repo in content.secret_scanning -%}
+{% assign Repository = repo.repository.full_name -%}
+{% assign RepositoryID = repo.repository.id -%}
+{% assign Tool = "secret-scanning" -%}
+{% assign AlertNumber = repo.number -%}
+{% assign Severity = null -%}
+{% assign CreatedAt = repo.created_at -%}
+{% assign UpdatedAt = repo.updated_at -%}
+{%- assign ResolvedAt = repo.resolved_at -%}
+{%- assign ReopenedAt = null -%}
+{%- assign ResolvedReason = repo.resolution_comment -%}
+{%- assign SecretBypass = repo.push_protection_bypassed -%}
+{%- assign SecretType = repo.secret_type -%}
+{%- assign SecretProvider = repo.secret_type_display_name -%}
+{%- assign SecretValidity = repo.validity -%}
+{%- assign GHSAID = null -%}
+{%- assign Ecosystem = null -%}
+{%- assign Package = null-%}
+{%- assign DependencyScope = null -%}
+{%- assign CodeQLRule = null -%}
+{%- assign ThirdPartyToolRule = null -%}
+{%- assign Teams = null -%}
+{%- if repo.private == true -%}
+{%- assign RepositoryVisibility = "private" -%}
+{%- else -%}
+{%- assign RepositoryVisibility = "internal" -%}
+{%- endif -%}
+{%- assign RepositoryTopics = repo.repository.description -%}
+{%- assign RepositoryArchived = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyLanguage = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyMicroservicesLanguage = null -%} {%- comment -%}do later{%- endcomment -%}
+{%- assign CustomPropertyType = null -%} {%- comment -%}do later{%- endcomment -%}
+{{ Repository | json }},{{ RepositoryID | json }},{{ Tool | json }},{{ AlertNumber | json }},{{ Severity | json }},{{ CreatedAt | json }},{{ UpdatedAt | json }},{{ ResolvedAt | json }},{{ ReopenedAt | json }},{{ ResolvedReason | json }},{{ SecretBypass | json }},{{ SecretType | json }},{{ SecretProvider | json }},{{ SecretValidity | json }},{{ GHSAID | json }},{{ Ecosystem | json }},{{ Package | json }},{{ DependencyScope | json }},{{ CodeQLRule | json }},{{ ThirdPartyToolRule | json }},{{ Teams | json }},{{ RepositoryVisibility | json }},{{ RepositoryTopics | json }},{{ RepositoryArchived | json }},{{ CustomPropertyLanguage | json }},{{ CustomPropertyMicroservicesLanguage | json }},{{ CustomPropertyType | json }}
+{%- endfor -%}
+    

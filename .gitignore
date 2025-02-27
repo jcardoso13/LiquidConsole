@@ -7,10 +7,11 @@ bin/
 tests/ignore
 .mono
 /.vs
-tests/data/output.json
-tests/data/output.txt
-tests/data/output.xml
-tests/data/output.csv
-tests/data/output.xlsx
+data/output.json
+data/output.txt
+data/output.xml
+data/output.csv
+data/output.xlsx
 tables/*
-tests/data/ghas-report.json
+data/nb/*
+tables/*
