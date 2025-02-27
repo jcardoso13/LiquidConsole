@@ -49,7 +49,7 @@ switch (split[2])
     default: contenttype = "text/plain"; break;
 }
 var contentReader = ContentFactory.GetContentReader(contenttype);
-Hash parsedJSON = contentReader.ParseString(inputJSON);
+Dicttionary<string,object> parsedJSON = contentReader.ParseString(inputJSON);
 
 var liquidInstance = new LiquidProcessor(microsoftLogger, null,true);
 liquidInstance.InitializeTagsAndFilters();
