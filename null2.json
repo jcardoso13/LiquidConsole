@@ -1,0 +1,6 @@
+{
+    "ExampleProperty":"HarcodedString",
+    "TestReason":" Simple JSON test for CloudLiquid",
+    "TestFilters":{"a":true,"b":false,"c":true},
+    "nullvalue": true
+}

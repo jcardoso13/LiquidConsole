@@ -2,6 +2,7 @@
 {
     "ExampleProperty":"HarcodedString",
     "TestReason":" Simple JSON test for CloudLiquid",
-    "TestFilters":{{ content | json }}
+    "TestFilters":{{ content | json }},
+    "nullvalue": {{ content.c | json}}
 }
 {%- endif -%}

@@ -1,0 +1,15 @@
+{% create_hash test %}
+{%assign test2 = null | create_hash %}
+{% create_list listtest %}
+{%assign listtest2 = null | create_list %}
+
+{
+    "test": {{ test | json }},
+    "test3": {{ test2 | json }},
+    "listtest3": {{ listtest2 | json }},
+    "listtest": {{ listtest | json }},
+    {%assign test= test | add_property: "hello", "world" %}
+    {%assign listtest = listtest | add_to_list: test%}
+    "test2": {{ test | json }},
+    "listtest2": {{ listtest | json }}
+}
