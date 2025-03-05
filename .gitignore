@@ -15,3 +15,8 @@ data/output.xlsx
 tables/*
 data/nb/*
 tables/*
+
+./output.json
+./output.txt
+./output.xml
+./overview.csv
