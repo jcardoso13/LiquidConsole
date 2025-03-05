@@ -1,8 +1,6 @@
 ﻿using System.Diagnostics;
 using CloudLiquid.ContentFactory;
 using CloudLiquid.Core;
-using DotLiquid;
-using DotLiquid.FileSystems;
 using Microsoft.Extensions.Logging;
 using Serilog;
 
@@ -37,7 +35,6 @@ microsoftLogger.LogInformation($"Parsing files took {stopwatch.ElapsedMillisecon
 
 // Initializing Liquid Processor
 stopwatch.Restart();
-Template.FileSystem = new LocalFileSystem(System.IO.Directory.GetCurrentDirectory() + "/liquid/");
 string contenttype;
 microsoftLogger.LogInformation(args[0].Split(".")[2]);
 var split = args[0].Split(".");
@@ -49,7 +46,7 @@ switch (split[2])
     default: contenttype = "text/plain"; break;
 }
 var contentReader = ContentFactory.GetContentReader(contenttype);
-Dicttionary<string,object> parsedJSON = contentReader.ParseString(inputJSON);
+Dictionary<string,object> parsedJSON = contentReader.ParseString(inputJSON);
 
 var liquidInstance = new LiquidProcessor(microsoftLogger, null,true);
 liquidInstance.InitializeTagsAndFilters();
