@@ -1,0 +1,16 @@
+{% liquid
+    assign newcontent = null | create_object
+    assign newcontent = newcontent | add_property: "HarcodedString", "Simple JSON test for CloudLiquid"
+    assign newcontent = newcontent | add_property: "TestReason", "Simple JSON test for CloudLiquid"
+    assign newcontent = newcontent | add_property: "TestFilters", content
+%}
+
+{%- if content.a == true or content.b == true -%}
+{
+        "ExampleProperty":"HarcodedString",
+        "TestReason":" Simple JSON test for CloudLiquid",
+        "TestFilters":{{ content | json }},
+        "newcontent": {{ newcontent | json }},
+        "nullvalue": {{ content.c | json}}
+}
+{%- endif -%}

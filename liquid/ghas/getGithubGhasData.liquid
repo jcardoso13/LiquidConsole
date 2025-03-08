@@ -1,0 +1,97 @@
+{% capture_json headers %}
+    {
+      "Accept": "application/vnd.github+json",
+      "User-Agent": "Liquid-Template",
+      "Authorization": "Bearer {{content.auth}}"
+    }
+{% endcapture_json %}
+{% liquid
+ # Get all the repos from the organization
+  assign count = 1 
+  assign bigresponse = "" 
+  assign total_repos = 0
+
+  for i in (1..100)
+    assign url = "https://api.github.com/orgs/" | append : content.org | append : "/repos?type=all&sort=full_name&per_page=100&page=" | append: count
+    assign console = url | log  
+    assign response = url | http_request: "GET", headers 
+
+
+    assign repos = response.body.data
+    assign total_repos = total_repos | plus: repos.size
+
+    if count == 1
+      assign bigresponse = repos
+    else
+      assign bigresponse = repos | concat: bigresponse
+    endif
+
+    if response.headers.LinkNext == null 
+        break 
+    endif
+    
+    assign count = count | plus: 1
+
+  endfor
+%}
+{% assign final = "" %}
+{% assign count = 0 %}
+{% for item in bigresponse %}
+    {% assign url = "https://api.github.com/repos/"  | append : content.org | append : "/" | append : item.name %}
+    {% assign response = url | http_request: "GET", headers  %}
+    {% assign console = url | log %}
+    {% assign repos = response.body.custom_properties %}
+    {% capture_json small %}
+        {
+            "id": {{ item.id | json}},
+            "count": {{ count | json}},
+            "name": {{ item.name | json}},
+            "full_name": {{ item.full_name | json}},
+            "visibility": {{ item.visibility | json}},
+            "html_url": {{ item.html_url | json}},
+            "description": {{ item.description | json}},
+            "archived" : {{ item.archived | json}},
+            "security_and_analysis" : {{ item.security_and_analysis | json}},
+            "custom_properties": {{ repos | json}}
+        }
+    {% endcapture_json %}
+    {% assign count = count | plus : 1 %}
+    {% if item != forloop.first %}
+        {% assign final = small | json  | append: "," | append: final %}
+    {% else %}
+        {% assign final = small | json %}
+    {% endif %}
+{% endfor %}
+{% assign loger = "Repos Found" | append : count | log %}
+{% liquid
+  assign repos = "[" | append: final | append: "]"
+  # Get organization dependabot,code-scanning,secret-scanning alerts
+  assign colection = ["/dependabot","/code-scanning","/secret-scanning"]
+  assign data = null | create_object
+  for col in colection
+    assign count = 1
+    for i in (1..100)
+      assign url = "https://api.github.com/orgs/" | append : content.org | append : col | append: "/alerts?per_page=100&page=" | append: count
+      assign console = url | log
+      assign response = url | http_request: "GET", headers
+      assign dependabot = response.body.data
+      if count == 1
+        assign bigresponse = dependabot
+      else
+        assign bigresponse = dependabot | concat: bigresponse
+      endif
+      if response.headers.LinkNext == null 
+        break 
+      endif
+      assign count = count | plus: 1
+    endfor
+    assign data = data | add_property: col , bigresponse
+  endfor
+%}
+{
+  "repos": {{ repos }},
+  "total_repos": {{ count | json }},
+  "dependabot": {{ data.dependabot | json }},
+  "code_scanning": {{ data.code_scanning  | json }},
+  "secret_scanning": {{ data.secret_scanning | json }}
+}
