@@ -1,9 +1,14 @@
-{% liquid
-    assign newcontent = null | create_object
-    assign newcontent = newcontent | add_property: "HarcodedString", "Simple JSON test for CloudLiquid"
-    assign newcontent = newcontent | add_property: "TestReason", "Simple JSON test for CloudLiquid"
-    assign newcontent = newcontent | add_property: "TestFilters", content
-%}
+
+{% assign  newcontent = null | create_object %}
+{% assign  str = "Simple JSON test for CloudLiquid" %}
+{% assign newcontent = newcontent | add_property: "HarcodedString", str%}
+{% assign newcontent = newcontent | add_property: "TestReason", str%}
+{% assign newcontent = newcontent | add_property: "Testnull", null %}
+{% assign newcontent = newcontent | add_property: "TestInt", 1234 %}
+{% assign newcontent = newcontent | add_property: "Testbool", true %}
+{% assign newcontent = newcontent | add_property: "Testbool2", true %}
+{% assign newcontent = newcontent | add_property: "TestFilters", content %}
+{% assign newcontent = newcontent | remove_property: "Testbool2" %}
 
 {%- if content.a == true or content.b == true -%}
 {

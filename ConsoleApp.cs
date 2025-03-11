@@ -67,9 +67,17 @@ microsoftLogger.LogInformation($"Running Liquid Processor took {stopwatch.Elapse
 stopwatch.Restart();
 split = args[2].Split(".");
 microsoftLogger.LogInformation("Content Type is " + split[2]);
-switch (split[1])
+switch (split[2])
 {
-    case "json": contenttype = "application/json"; break;
+    case "json": 
+    contenttype = "application/json"; 
+    var jsonElement = JsonSerializer.Deserialize<Dictionary<string, object>>(result.Output, new JsonSerializerOptions
+            {
+                Converters = {new DictionaryStringObjectJsonConverter()},
+                AllowTrailingCommas = true // Allow trailing commas
+            });
+    result.Output = JsonSerializer.Serialize(jsonElement, new JsonSerializerOptions { WriteIndented = true });
+    break;
     case "xml": contenttype = "application/xml"; break;
     case "csv": contenttype = "text/csv"; break;
     default: contenttype = "text/plain"; break;
