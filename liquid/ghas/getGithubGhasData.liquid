@@ -6,11 +6,9 @@
     }
 {% endcapture_json %}
 {% liquid
- # Get all the repos from the organization
-  assign count = 1 
-  assign bigresponse = "" 
+  assign count = 1
+  assign bigresponse = ""
   assign total_repos = 0
-
   for i in (1..100)
     assign url = "https://api.github.com/orgs/" | append : content.org | append : "/repos?type=all&sort=full_name&per_page=100&page=" | append: count
     assign console = url | log  
@@ -62,16 +60,15 @@
         {% assign final = small | json %}
     {% endif %}
 {% endfor %}
-{% assign loger = "Repos Found" | append : count | log %}
+{% assign loger = "Repos Found " | append : count | log %}
 {% liquid
   assign repos = "[" | append: final | append: "]"
-  # Get organization dependabot,code-scanning,secret-scanning alerts
-  assign colection = ["/dependabot","/code-scanning","/secret-scanning"]
+  assign colec = "dependabot,code-scanning,secret-scanning" | split: ","
   assign data = null | create_object
-  for col in colection
+  for col in colec
     assign count = 1
     for i in (1..100)
-      assign url = "https://api.github.com/orgs/" | append : content.org | append : col | append: "/alerts?per_page=100&page=" | append: count
+      assign url = "https://api.github.com/orgs/" | append : content.org | append : "/" | append : col | append: "/alerts?per_page=100&page=" | append: count
       assign console = url | log
       assign response = url | http_request: "GET", headers
       assign dependabot = response.body.data
@@ -92,6 +89,6 @@
   "repos": {{ repos }},
   "total_repos": {{ count | json }},
   "dependabot": {{ data.dependabot | json }},
-  "code_scanning": {{ data.code_scanning  | json }},
-  "secret_scanning": {{ data.secret_scanning | json }}
+  "code_scanning": {{ data.code-scanning  | json }},
+  "secret_scanning": {{ data.secret-scanning | json }}
 }
