@@ -162,7 +162,7 @@ So the Output goal is the following
                     "Description":"{{quoteline.Description}}",
                     "Quantity": "{{quoteline.Quantity}}",
                     "UnitPrice": "{{quoteline.UnitPrice}}",
-                    "TotalPrice": {{quoteline.TotalPrice}},
+                    "TotalPrice": {{quoteline.TotalPrice | json }},
                     "ProductCode": "{{quoteline.ProductCode}}"
                     {% comment  %}ALL FIELDS NEED TO BE SET HERE MANUALLY  {% endcomment %}
                 },

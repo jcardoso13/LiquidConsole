@@ -121,41 +121,31 @@ So the Output goal is the following
     }
 }
 {%endcomment%}
-    {% assign CreateOpportunity = null | create_list %}
-    {% assign UpdateOpportunity = null | create_list %}
-    {% for item in content.OpportunityRequest %}
-        {%  if item.Id != null %}
-            {% for quote in item.Quote %}
-                {% for quoteline in quote.QuoteLine %}
-                    {% capture_json line %}
-                    {
-                        "attributes" : {"type" : "QuoteLine"},
-                        {{ quoteline | json: "nobrackets" }}
-                    }
-                    {% endcapture_json %}
-                    {% assign UpdateOpportunity = UpdateOpportunity | add_to_list: line %}
-                {% endfor %}
-                {% assign quo = quote | remove_property : "QuoteLine" %}
-                {% capture_json line %}
-                {
-                    "attributes" : {"type" : "Quote"},
-                    {{ quo | json: "nobrackets" }}
-                }
-                {% endcapture_json %}
-                {% assign UpdateOpportunity = UpdateOpportunity | add_to_list: line %}
-            {% endfor %}
-            {% assign opp = item | remove_property: "Quote"%}
-            {% capture_json line %}
-            {
-                    "attributes" : {"type" : "Opportunity"},
-                    {{ opp | json: "nobrackets" }}
-            }
-            {% endcapture_json %}
-            {% assign UpdateOpportunity = UpdateOpportunity | add_to_list: line %}
-        {%  else %}
-            {%assign CreateOpportunity = CreateOpportunity | add_to_list: item %}
-        {% endif %}
-    {% endfor %}
+{% liquid
+     assign CreateOpportunity = null | create_list 
+     assign UpdateOpportunity = null | create_list
+     assign quotelinetype = "QuoteLine" | create_object : "type"
+     assign quotetype = "Quote" | create_object : "type" 
+     assign opportunitytype = "Opportunity" | create_object : "type"  
+     for item in content.OpportunityRequest 
+          if item.Id != null 
+             for quote in item.Quote 
+                 for quoteline in quote.QuoteLine 
+                        assign line = quoteline | add_property : "attributes", quotelinetype
+                        assign UpdateOpportunity = UpdateOpportunity | add_to_list: line
+                 endfor 
+                 assign quo = quote | remove_property : "QuoteLine" 
+                 assign line = quo | add_property : "attributes", quotetype
+                 assign UpdateOpportunity = UpdateOpportunity | add_to_list: line 
+             endfor 
+             assign opp = item | remove_property: "Quote"
+             assign line = opp | add_property : "attributes", opportunitytype 
+             assign UpdateOpportunity = UpdateOpportunity | add_to_list: line 
+          else 
+            assign CreateOpportunity = CreateOpportunity | add_to_list: item 
+         endif 
+     endfor 
+%}
 {
     "CreateOpportunity":{
         "records": {{CreateOpportunity | json }}
