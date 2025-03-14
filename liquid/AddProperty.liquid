@@ -16,6 +16,7 @@
         "TestReason":" Simple JSON test for CloudLiquid",
         "TestFilters":{{ content | json }},
         "newcontent": {{ newcontent | json }},
-        "nullvalue": {{ content.c | json}}
+        "nullvalue": {{ content.c | json}},
+        "testGetIndex": {{ newcontent["TestReason"] | json}}
 }
 {%- endif -%}

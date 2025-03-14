@@ -1,0 +1,19 @@
+
+{% assign  newcontent1 = content | create_list %}
+{% assign newcontent = newcontent1 | add_to_list: "HarcodedString"%}
+{% assign newcontent = newcontent | add_to_list: "TestReason"%}
+{% assign newcontent = newcontent | add_to_list: "Testnull" %}
+{% assign newcontent = newcontent | add_to_list: "TestInt" %}
+{% assign newcontent = newcontent | add_to_list: "Testbool" %}
+{% assign newcontent = newcontent | add_to_list: "Testbool2" %}
+{% assign newcontent = newcontent | add_to_list: "TestFilters" %}
+{% assign newcontent = newcontent | remove_From_list: "Testbool2" %}
+
+{%- if content.a == true or content.b == true -%}
+{
+        "ExampleProperty":"HarcodedString",
+        "TestReason":" Simple JSON test for CloudLiquid",
+        "newcontent": {{ newcontent | json }},
+        "newcontent1": {{ newcontent1 | json }}
+}
+{%- endif -%}
