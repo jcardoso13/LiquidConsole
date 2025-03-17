@@ -53,17 +53,24 @@ switch (split[2])
 var contentReader = ContentFactory.GetContentReader(contenttype);
 Dictionary<string,object> parsedJSON = contentReader.ParseString(inputJSON);
 
-var liquidInstance = new LiquidProcessor(microsoftLogger, null,true);
-liquidInstance.InitializeTagsAndFilters();
+var liquidInstance = new LiquidProcessor(microsoftLogger,null,"Fluid",true);
 stopwatch.Stop();
 microsoftLogger.LogInformation($"Initializing Liquid Processor took {stopwatch.ElapsedMilliseconds} ms");
 
 // Running Liquid Processor
 stopwatch.Restart();
 var result = liquidInstance.Run(parsedJSON, liquid);
+if(!result.Success)
+{
+    microsoftLogger.LogError($"Error while processing data.\nAction: {result.ErrorAction}\nMessage:{result.ErrorMessage}");
+    return;
+}
+if(!string.IsNullOrEmpty(result.ErrorMessage))
+{
+    microsoftLogger.LogInformation(result.ErrorMessage);
+}
 stopwatch.Stop();
 microsoftLogger.LogInformation($"Running Liquid Processor took {stopwatch.ElapsedMilliseconds} ms");
-
 // Writing output
 stopwatch.Restart();
 split = args[2].Split(".");
