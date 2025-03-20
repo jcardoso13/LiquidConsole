@@ -1,3 +1,0 @@
-
-
-Liquid syntax error: Object 'System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1+AsyncStateMachineBox`1[System.Collections.Generic.Dictionary`2[System.String,System.Object],CloudLiquid.Filters.HttpFilters+<HttpRequest>d__1]' is invalid because it is neither a built-in type nor implements ILiquidizable
