@@ -80,7 +80,7 @@ jobs:
       working-directory: ./LiquidConsole
 
     - name: Run the project
-      run: dotnet run --configuration Release ./input.${{ env.input-format }} ./transform.liquid ${{inputs.output-file}}
+      run: dotnet run --configuration Release ./input.${{ env.input-format }} ./transform.liquid ./${{inputs.output-file}}
       working-directory: ./LiquidConsole
 
     - name: Upload Logs as artifact

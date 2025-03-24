@@ -34,7 +34,7 @@ jobs:
     with:
       input-file: "tests/data/salesforce.json"
       liquid-string: "liquid/salesforceCloudLiquid.liquid"
-      output-format: "json"
+      output-file: "output.json"
 
   download-and-check-output:
     needs: call-build-and-run
@@ -43,8 +43,8 @@ jobs:
     - name: Download output.json artifact
       uses: actions/download-artifact@v4
       with:
-        name: output-file
-        path: ./output
+        name: output.json
+        path: ./output.json
   
 #    - name: CSV export
 #      uses: advanced-security/ghas-to-csv@v3
