@@ -24,7 +24,7 @@ jobs:
     - name: Read JSON file
       id: read_json
       run: |
-        json=$(jq "." ./tests/data/salesforce.json)
+        json=$(jq "." ./data/salesforce.json)
         echo json=$json >> $GITHUB_OUTPUT
         echo $json
 
@@ -32,7 +32,7 @@ jobs:
     needs: read-files
     uses: bdsoflow/gh-data-transform/.github/workflows/run.yml@main
     with:
-      input-file: "tests/data/salesforce.json"
+      input-file: "data/salesforce.json"
       liquid-file: "liquid/salesforceCloudLiquid.liquid"
       output-file: "output.json"
 
