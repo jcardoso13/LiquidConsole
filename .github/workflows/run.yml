@@ -7,11 +7,11 @@ on:
         description: 'file path'
         required: true
         type: string
-      liquid-string:
+      liquid-file:
         description: 'Liquid file path'
         required: true
         type: string
-      output-format:
+      output-file:
         description: 'Output format'
         required: false
         type: string
@@ -59,6 +59,12 @@ jobs:
         input_format=$(echo "${{ inputs.input-file }}" | awk -F. '{print $NF}')
         echo "input-format=$input_format" >> $GITHUB_ENV
 
+    - name: Determine input format
+      id: determine-output-format
+      run: |
+        output_format=$(echo "${{ inputs.output-file }}" | awk -F. '{print $NF}')
+        echo "output-format=$output_format" >> $GITHUB_ENV
+
     - name: Save input to file
       run: |
         echo ${{ inputs.input-file }}
@@ -68,13 +74,13 @@ jobs:
 
     - name: Save Liquid string to file
       run: |
-        echo ${{ inputs.liquid-string }}
-        cat ../${{ inputs.liquid-string }}
-        cat ../${{ inputs.liquid-string }} > transform.liquid
+        echo ${{ inputs.liquid-file }}
+        cat ../${{ inputs.liquid-file }}
+        cat ../${{ inputs.liquid-file }} > transform.liquid
       working-directory: ./LiquidConsole
 
     - name: Run the project
-      run: dotnet run --configuration Release ./input.${{ env.input-format }} ./transform.liquid ./output.${{ inputs.output-format }}
+      run: dotnet run --configuration Release ./input.${{ env.input-format }} ./transform.liquid ${{inputs.output-file}}
       working-directory: ./LiquidConsole
 
     - name: Upload Logs as artifact
@@ -82,10 +88,10 @@ jobs:
       run: |
         pwd
         ls
-        if [ "${{ inputs.output-format }}" == "json" ]; then
-          cat ./output.${{ inputs.output-format }} | jq '.' > formatted_output
+        if [ "${{ env.output_format}}" == "json" ]; then
+          cat ${{ inputs.output-file }} | jq '.' > formatted_output
         else
-          cat ./output.${{ inputs.output-format }} > formatted_output
+          cat ${{ inputs.output-file }} > formatted_output
         fi
         echo "## CloudLiquid Logs 🚀" >> ./summary.md
         echo "### Input Data" >> ./summary.md
@@ -101,7 +107,7 @@ jobs:
         echo "\`\`\`" >> ./summary.md
         echo "" >> ./summary.md
         echo "### Output Data" >> ./summary.md
-        echo "\`\`\`${{ inputs.output-format }}" >> ./summary.md
+        echo "\`\`\`${{ env.output_format}}" >> ./summary.md
         cat ./formatted_output >> ./summary.md
         echo "" >> ./summary.md
         echo "\`\`\`" >> ./summary.md
@@ -112,6 +118,6 @@ jobs:
     - name: Upload output.file as artifact
       uses: actions/upload-artifact@v4
       with:
-        name: output-file
-        path: ./LiquidConsole/output.${{ inputs.output-format }}
+        name: ${{ inputs.output-file }}
+        path: ./LiquidConsole/${{ inputs.output-file }}
 
