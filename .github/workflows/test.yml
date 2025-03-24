@@ -33,7 +33,7 @@ jobs:
     uses: bdsoflow/gh-data-transform/.github/workflows/run.yml@main
     with:
       input-file: "tests/data/salesforce.json"
-      liquid-string: "liquid/salesforceCloudLiquid.liquid"
+      liquid-file: "liquid/salesforceCloudLiquid.liquid"
       output-file: "output.json"
 
   download-and-check-output:
