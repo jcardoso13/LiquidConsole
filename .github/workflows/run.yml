@@ -37,10 +37,8 @@ jobs:
         dotnet-version: '8.0.x'
 
     - name: Clone Git Repo
-      env:
-        GITHUB_TOKEN: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET  }}
       run: |
-        git clone https://x-access-token:${GITHUB_TOKEN}@github.com/bdsoflow/gh-data-transform.git
+        git clone https://x-access-token:${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET  }}@github.com/bdsoflow/gh-data-transform.git
         cd ./LiquidConsole/
         pwd
         ls
