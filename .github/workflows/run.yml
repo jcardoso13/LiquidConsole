@@ -36,14 +36,19 @@ jobs:
       with:
         dotnet-version: '8.0.x'
 
-    - name: Clone Git Repo
-      env:
-        TOKEN_SECRET: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}
-      run: |
-        git clone https://x-access-token:"${{env.TOKEN_SECRET}}"@github.com/bdsoflow/gh-data-transform.git
-        cd ./LiquidConsole/
-        pwd
-        ls
+    # - name: Clone Git Repo
+    #   env:
+    #     TOKEN_SECRET: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}
+    #   run: |
+    #     git clone https://x-access-token:"${{env.TOKEN_SECRET}}"@github.com/bdsoflow/gh-data-transform.git
+    #     cd ./LiquidConsole/
+    #     pwd
+    #     ls
+    - name: Checkout tools repo
+      uses: actions/checkout@v4
+      with:
+        repository: bdsoflow/gh-data-transform
+        path: LiquidConsole
 
     - name: Restore dependencies
       run: dotnet restore
