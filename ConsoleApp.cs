@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Text.Json;
 using System.Text.Encodings.Web;
+using CloudLiquid.Engine.Factories;
 
 var serilogLogger = new LoggerConfiguration()
     .Enrich.FromLogContext()
@@ -53,7 +54,7 @@ switch (split[2])
 var contentReader = ContentFactory.GetContentReader(contenttype);
 Dictionary<string,object> parsedJSON = contentReader.ParseString(inputJSON);
 
-var liquidInstance = new LiquidProcessor(microsoftLogger,null,"Fluid",true);
+var liquidInstance = new LiquidProcessor(microsoftLogger,EngineType.Fluid);
 stopwatch.Stop();
 microsoftLogger.LogInformation($"Initializing Liquid Processor took {stopwatch.ElapsedMilliseconds} ms");
 
