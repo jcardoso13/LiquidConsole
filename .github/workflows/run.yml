@@ -40,7 +40,7 @@ jobs:
       env:
         TOKEN_SECRET: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}
       run: |
-        git clone https://x-access-token:${{env.TOKEN_SECRET}}@github.com/bdsoflow/gh-data-transform.git
+        git clone https://x-access-token:"${{env.TOKEN_SECRET}}"@github.com/bdsoflow/gh-data-transform.git
         cd ./LiquidConsole/
         pwd
         ls
