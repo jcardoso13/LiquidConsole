@@ -47,7 +47,7 @@ jobs:
     - name: Checkout tools repo
       uses: actions/checkout@v4
       with:
-        repository: bdsoflow/gh-data-transform@main
+        repository: bdsoflow/gh-data-transform
         path: LiquidConsole
         ref: main
 
