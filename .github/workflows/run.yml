@@ -47,8 +47,9 @@ jobs:
     - name: Checkout tools repo
       uses: actions/checkout@v4
       with:
-        repository: bdsoflow/gh-data-transform
+        repository: bdsoflow/gh-data-transform@main
         path: LiquidConsole
+        ref: main
 
     - name: Restore dependencies
       run: dotnet restore
