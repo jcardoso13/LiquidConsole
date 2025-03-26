@@ -3,7 +3,7 @@ name: Build and Run
 on:
   workflow_call:
     secrets:
-      GITHUB_TOKEN:
+      GH_TOKEN:
         required: false
     inputs:
       input-file:
@@ -52,7 +52,7 @@ jobs:
         repository: ${{inputs.liquid-repo}}
         path: LiquidConsole
         ref: main
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.GH_TOKEN }}
 
     - name: Restore dependencies
       run: dotnet restore
