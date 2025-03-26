@@ -50,6 +50,7 @@ jobs:
         repository: bdsoflow/gh-data-transform
         path: LiquidConsole
         ref: main
+        token: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}
 
     - name: Restore dependencies
       run: dotnet restore
