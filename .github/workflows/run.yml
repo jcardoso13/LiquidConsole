@@ -2,6 +2,9 @@ name: Build and Run
 
 on:
   workflow_call:
+    secrets:
+      GITHUB_TOKEN:
+        required: false
     inputs:
       input-file:
         description: 'file path'
@@ -25,6 +28,8 @@ on:
       output-json:
         description: 'The output JSON file'
         value: ${{ jobs.build-and-run.outputs.output-json }}
+
+
 
 jobs:
   build-and-run:
