@@ -62,7 +62,7 @@ jobs:
       uses: actions/download-artifact@v4
       with:
         name: ${{inputs.liquid-file}}
-        path: "./LiquidConsole/transform.liquid"
+        path: "./LiquidConsole/"
 
     - name: Restore dependencies
       run: dotnet restore
@@ -75,10 +75,11 @@ jobs:
     - name: Determine input format
       id: determine-input-format
       run: |
+        ls
         input_format=$(echo "${{ inputs.input-file }}" | awk -F. '{print $NF}')
         echo "input-format=$input_format" >> $GITHUB_ENV
 
-    - name: Determine input format
+    - name: Determine output format
       id: determine-output-format
       run: |
         output_format=$(echo "${{ inputs.output-file }}" | awk -F. '{print $NF}')
@@ -99,7 +100,7 @@ jobs:
     #   working-directory: ./LiquidConsole
 
     - name: Run the project
-      run: dotnet run --configuration Release ./input.${{ env.input-format }} ./transform.liquid ./${{inputs.output-file}}
+      run: dotnet run --configuration Release ./${{inputs.liquid-file}}  ./${{inputs.liquid-file}} ./${{inputs.output-file}}
       working-directory: ./LiquidConsole
 
     - name: Upload Logs as artifact
