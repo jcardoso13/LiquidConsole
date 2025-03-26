@@ -55,6 +55,32 @@ jobs:
       with:
         name: output.json
         path: ./output.json
+    - name: Upload Logs as artifact
+      id: upload-output
+      run: |
+          pwd
+          ls
+          cat ./output.json | jq '.' > formatted_output
+          echo "## CloudLiquid Logs 🚀" >> ./summary.md
+          echo "### Input Data" >> ./summary.md
+          echo "\`\`\`json" >> ./summary.md
+          cat ./data/salesforce.json >> ./summary.md
+          echo "" >> ./summary.md
+          echo "\`\`\`" >> ./summary.md
+          echo "" >> ./summary.md
+          echo "### Liquid Transform" >> ./summary.md
+          echo "\`\`\`html" >> ./summary.md
+          cat ./liquid/salesforceCloudLiquid.liquid >> ./summary.md
+          echo "" >> ./summary.md
+          echo "\`\`\`" >> ./summary.md
+          echo "" >> ./summary.md
+          echo "### Output Data" >> ./summary.md
+          echo "\`\`\`json" >> ./summary.md
+          cat ./formatted_output >> ./summary.md
+          echo "" >> ./summary.md
+          echo "\`\`\`" >> ./summary.md
+          cat ./summary.md
+          cat ./summary.md > $GITHUB_STEP_SUMMARY
   
 #    - name: CSV export
 #      uses: advanced-security/ghas-to-csv@v3

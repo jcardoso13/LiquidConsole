@@ -102,39 +102,7 @@ jobs:
     - name: Run the project
       run: dotnet run --configuration Release ./${{inputs.input-file}}  ./${{inputs.liquid-file}} ./${{inputs.output-file}}
       working-directory: ./LiquidConsole
-
-    - name: Upload Logs as artifact
-      id: upload-output
-      run: |
-        pwd
-        ls
-        if [ "${{ env.output_format}}" == "json" ]; then
-          cat ${{ inputs.output-file }} | jq '.' > formatted_output
-        else
-          cat ${{ inputs.output-file }} > formatted_output
-        fi
-        echo "## CloudLiquid Logs 🚀" >> ./summary.md
-        echo "### Input Data" >> ./summary.md
-        echo "\`\`\`${{ env.input-format }}" >> ./summary.md
-        cat ./${{inputs.input-file}} >> ./summary.md
-        echo "" >> ./summary.md
-        echo "\`\`\`" >> ./summary.md
-        echo "" >> ./summary.md
-        echo "### Liquid Transform" >> ./summary.md
-        echo "\`\`\`html" >> ./summary.md
-        cat ./${{inputs.liquid-file}} >> ./summary.md
-        echo "" >> ./summary.md
-        echo "\`\`\`" >> ./summary.md
-        echo "" >> ./summary.md
-        echo "### Output Data" >> ./summary.md
-        echo "\`\`\`${{ env.output_format}}" >> ./summary.md
-        cat ./formatted_output >> ./summary.md
-        echo "" >> ./summary.md
-        echo "\`\`\`" >> ./summary.md
-        cat ./summary.md
-        cat ./summary.md > $GITHUB_STEP_SUMMARY
-      working-directory: ./LiquidConsole
-
+      
     - name: Upload output.file as artifact
       uses: actions/upload-artifact@v4
       with:
