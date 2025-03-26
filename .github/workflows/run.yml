@@ -38,9 +38,7 @@ jobs:
       output-json: ./output.json
     steps:
 
-    - name: Checkout repository
-      uses: actions/checkout@v4
-
+      
     - name: Set up .NET
       uses: actions/setup-dotnet@v4
       with:
