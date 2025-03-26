@@ -38,7 +38,9 @@ jobs:
       output-json: ./output.json
     steps:
 
-      
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
     - name: Set up .NET
       uses: actions/setup-dotnet@v4
       with:
@@ -51,6 +53,16 @@ jobs:
         path: LiquidConsole
         ref: main
         token: ${{ secrets.GH_TOKEN }}
+    - name: Download input json artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{ inputs.input-file }}
+        path: "./LiquidConsole/input.${{ env.input-format }}"
+    - name: Download liquid artifact
+      uses: actions/download-artifact@v4
+      with:
+        name: ${{inputs.liquid-file}}
+        path: "./LiquidConsole/transform.liquid"
 
     - name: Restore dependencies
       run: dotnet restore
@@ -72,19 +84,19 @@ jobs:
         output_format=$(echo "${{ inputs.output-file }}" | awk -F. '{print $NF}')
         echo "output-format=$output_format" >> $GITHUB_ENV
 
-    - name: Save input to file
-      run: |
-        echo ${{ inputs.input-file }}
-        cat ../${{ inputs.input-file }}
-        cat ../${{ inputs.input-file }} > input.${{ env.input-format }}
-      working-directory: ./LiquidConsole
+    # - name: Save input to file
+    #   run: |
+    #     echo ${{ inputs.input-file }}
+    #     cat ../${{ inputs.input-file }}
+    #     cat ../${{ inputs.input-file }} > input.${{ env.input-format }}
+    #   working-directory: ./LiquidConsole
 
-    - name: Save Liquid string to file
-      run: |
-        echo ${{ inputs.liquid-file }}
-        cat ../${{ inputs.liquid-file }}
-        cat ../${{ inputs.liquid-file }} > transform.liquid
-      working-directory: ./LiquidConsole
+    # - name: Save Liquid string to file
+    #   run: |
+    #     echo ${{ inputs.liquid-file }}
+    #     cat ../${{ inputs.liquid-file }}
+    #     cat ../${{ inputs.liquid-file }} > transform.liquid
+    #   working-directory: ./LiquidConsole
 
     - name: Run the project
       run: dotnet run --configuration Release ./input.${{ env.input-format }} ./transform.liquid ./${{inputs.output-file}}
