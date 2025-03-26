@@ -15,18 +15,28 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Read liquid file
-      id: read_liquid
-      run: |
-        liquid=$(cat ./liquid/salesforceCloudLiquid.liquid)
-        echo liquid=$liquid >> $GITHUB_OUTPUT
-        echo $liquid
-    - name: Read JSON file
-      id: read_json
-      run: |
-        json=$(jq "." ./data/salesforce.json)
-        echo json=$json >> $GITHUB_OUTPUT
-        echo $json
+    # - name: Read liquid file
+    #   id: read_liquid
+    #   run: |
+    #     liquid=$(cat ./liquid/salesforceCloudLiquid.liquid)
+    #     echo liquid=$liquid >> $GITHUB_OUTPUT
+    #     echo $liquid
+    # - name: Read JSON file
+    #   id: read_json
+    #   run: |
+    #     json=$(jq "." ./data/salesforce.json)
+    #     echo json=$json >> $GITHUB_OUTPUT
+    #     echo $json
+    - name: Upload generated JSON as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: data/salesforce.json
+        path: ./data/salesforce.json
+    - name: Upload liquid as artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: liquid/salesforceCloudLiquid.liquid
+        path: ./liquid/salesforceCloudLiquid.liquid
 
   call-build-and-run:
     needs: read-files
