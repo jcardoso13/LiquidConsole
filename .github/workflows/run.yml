@@ -116,13 +116,13 @@ jobs:
         echo "## CloudLiquid Logs 🚀" >> ./summary.md
         echo "### Input Data" >> ./summary.md
         echo "\`\`\`${{ env.input-format }}" >> ./summary.md
-        cat ./input.json >> ./summary.md
+        cat ./${{inputs.input-file}} >> ./summary.md
         echo "" >> ./summary.md
         echo "\`\`\`" >> ./summary.md
         echo "" >> ./summary.md
         echo "### Liquid Transform" >> ./summary.md
         echo "\`\`\`html" >> ./summary.md
-        cat ./transform.liquid >> ./summary.md
+        cat ./${{inputs.liquid-file}} >> ./summary.md
         echo "" >> ./summary.md
         echo "\`\`\`" >> ./summary.md
         echo "" >> ./summary.md
