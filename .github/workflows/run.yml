@@ -15,7 +15,12 @@ on:
         description: 'Output format'
         required: false
         type: string
-        default: 'txt'
+        default: 'output'
+      liquid-repo:
+        description: 'liquid repo full name'
+        required: false
+        type: string
+        default: jcardoso13/LiquidConsole
     outputs:
       output-json:
         description: 'The output JSON file'
@@ -36,21 +41,13 @@ jobs:
       with:
         dotnet-version: '9.0.x'
 
-    # - name: Clone Git Repo
-    #   env:
-    #     TOKEN_SECRET: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}
-    #   run: |
-    #     git clone https://x-access-token:"${{env.TOKEN_SECRET}}"@github.com/bdsoflow/gh-data-transform.git
-    #     cd ./LiquidConsole/
-    #     pwd
-    #     ls
     - name: Checkout tools repo
       uses: actions/checkout@v4
       with:
-        repository: bdsoflow/gh-data-transform
+        repository: ${{inputs.liquid-repo}}
         path: LiquidConsole
         ref: main
-        token: ${{ secrets.SMARTERAPP_GITHUB_TOKEN_SECRET }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Restore dependencies
       run: dotnet restore
